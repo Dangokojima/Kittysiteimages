@@ -676,7 +676,7 @@ function loadTranslations(lang){
 function applyTranslations(){
   document.querySelectorAll("[data-i18n]").forEach(el=>{
     const key = el.dataset.i18n;
-    if(translations[key]) el.textContent = translations[key];
+    if(translations[key]) el.innerHTML = translations[key].replace(/\n/g, "<br>");
   });
   langText.textContent = currentLang==="pt"?"BR":"EN";
 }
