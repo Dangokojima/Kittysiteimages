@@ -1,4 +1,29 @@
+/* =========================
+   FIX GLOBAL CARRD SCALE
+========================= */
+
+/* trava o scaling do carrd */
+html {
+  font-size: 16px !important;
+}
+
+/* garante consistência geral */
+body {
+  font-size: 16px !important;
+  line-height: 1.4 !important;
+}
+
+/* evita herança maluca do carrd */
+* {
+  text-size-adjust: none;
+}
+
 * { box-sizing: border-box; }
+
+h1 { font-size: clamp(28px, 2vw + 16px, 42px); }
+h2 { font-size: clamp(22px, 1.5vw + 14px, 32px); }
+h3 { font-size: clamp(18px, 1.2vw + 12px, 26px); }
+p  { font-size: 16px; }
 
 :root {
   --bg: #1a1625;
@@ -64,7 +89,7 @@ p, span, a, button {
 }
 
 .hero-content h1 {
-  font-size: clamp(28px, 5vw, 48px);
+  font-size: clamp(28px, 2vw + 16px, 42px);
   margin-bottom: 16px;
 
   color: #EED6C9;
@@ -75,7 +100,7 @@ p, span, a, button {
 }
 
 .hero-content p {
-  font-size: clamp(14px, 2vw, 18px);
+  font-size: clamp(14px, 1vw + 12px, 18px);
   line-height: 1.6;
   margin-bottom: 24px;
 
@@ -472,7 +497,7 @@ p, span, a, button {
 }
 
 .portfolio-header h3 {
-  font-size: clamp(28px, 4vw, 0px);
+  font-size: clamp(28px, 2vw + 12px, 40px);
 }
 
 /* GRID */
