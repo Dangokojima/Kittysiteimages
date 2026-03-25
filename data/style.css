@@ -869,7 +869,7 @@ p, span, a, button {
   max-height: 0;
   overflow: hidden;
   opacity: 0;
-
+  text-align: left;
   transition: 0.3s ease;
 }
 
