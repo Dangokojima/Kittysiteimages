@@ -37,26 +37,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const termsPage = document.getElementById("termsPage");
   const openTerms = document.getElementById("openTerms");
   const closeTerms = document.getElementById("closeTerms");
-  const root = document.getElementById("kitty-root");
-
-  function toggleMainContent(show) {
-    if (root) {
-      root.style.display = show ? "" : "none";
-    }
-  }
 
   openTerms?.addEventListener("click", (e) => {
     e.preventDefault();
 
-    toggleMainContent(false);
     termsPage.classList.add("show");
-
-    window.scrollTo(0, 0);
+    document.body.style.overflow = "hidden"; // trava scroll
   });
 
   closeTerms?.addEventListener("click", () => {
-    toggleMainContent(true);
     termsPage.classList.remove("show");
+    document.body.style.overflow = "";
   });
 
   /* =========================
@@ -259,21 +250,4 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelector(".site-wrapper")?.remove();
   }
 
-});
-
-const termsPage = document.getElementById("termsPage");
-const openTerms = document.getElementById("openTerms");
-const closeTerms = document.getElementById("closeTerms");
-const root = document.getElementById("kitty-root");
-
-openTerms?.addEventListener("click", (e) => {
-  e.preventDefault();
-
-  termsPage.classList.add("show");
-  root.style.filter = "blur(6px)";
-});
-
-closeTerms?.addEventListener("click", () => {
-  termsPage.classList.remove("show");
-  root.style.filter = "";
 });
