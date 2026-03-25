@@ -975,21 +975,52 @@ body {
 
   .footer-container {
     flex-direction: column;
-    gap: 30px;
+    align-items: center;
     text-align: center;
+    gap: 30px;
   }
 
+  /* LOGO */
+  .footer-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer-logo {
+    width: 140px;
+  }
+
+  /* LINKS */
   .footer-links {
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
   }
 
+  .footer-col {
+    display: contents;
+  }
+
+  .footer-col a {
+    font-size: 18px;
+  }
+
+  /* REMOVE COLUNAS DUPLAS */
+  .footer-links {
+    display: flex;
+  }
+
+  /* RIGHT */
   .footer-right {
     align-items: center;
   }
 
   .footer-socials {
     justify-content: center;
+    gap: 20px;
   }
+
 }
 </style>
 </head>
@@ -1560,7 +1591,7 @@ document.querySelectorAll(".faq-question").forEach(q => {
         </a>
 
         <a href="#" target="_blank">
-          <img data-social="Facebook">
+          <img data-social="Blue">
         </a>
       </div>
 
