@@ -692,7 +692,7 @@ body {
 
 /* CARD */
 .service-card {
-  width: 250px;
+  width: 280px;
   height: 150px;
 
   flex: 0 0 auto;
@@ -710,6 +710,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: flex-start;
 
   transition: 0.3s;
 }
@@ -1111,19 +1112,31 @@ document.addEventListener("DOMContentLoaded", () => {
   function updateArrows() {
     if (!grid || !leftArrow || !rightArrow) return;
 
-    const isOverflowing = grid.scrollWidth > grid.clientWidth + 5;
+    const maxScroll = grid.scrollWidth - grid.clientWidth;
+    const current = grid.scrollLeft;
 
-    // sem overflow → esconde tudo
+    const isOverflowing = maxScroll > 5;
+
     if (!isOverflowing) {
+      // 👉 centraliza quando não precisa scroll
+      grid.style.justifyContent = "center";
+
       leftArrow.style.display = "none";
       rightArrow.style.display = "none";
       return;
     }
 
-    // controle por posição
-    leftArrow.style.display = grid.scrollLeft > 0 ? "block" : "none";
+    // 👉 alinha à esquerda quando precisa scroll
+    grid.style.justifyContent = "flex-start";
+
+    const TOLERANCE = 8;
+
+    // seta esquerda
+    leftArrow.style.display = current > TOLERANCE ? "block" : "none";
+
+    // seta direita (corrigida 👇)
     rightArrow.style.display =
-      grid.scrollLeft + grid.clientWidth < grid.scrollWidth ? "block" : "none";
+      current < maxScroll - TOLERANCE ? "block" : "none";
   }
 
   if (grid && leftArrow && rightArrow) {
@@ -1139,7 +1152,8 @@ document.addEventListener("DOMContentLoaded", () => {
     grid.addEventListener("scroll", updateArrows);
     window.addEventListener("resize", updateArrows);
 
-    updateArrows();
+    // 👇 garante cálculo correto após render
+    setTimeout(updateArrows, 50);
   }
 
   /* =========================
