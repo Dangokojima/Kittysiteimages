@@ -948,6 +948,7 @@ p, span, a, button {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  text-align: left;
 }
 
 .footer-col a {
@@ -1038,6 +1039,7 @@ p, span, a, button {
   /* RIGHT */
   .footer-right {
     align-items: center;
+    text-align: left;
   }
 
   .footer-socials {
