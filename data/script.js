@@ -240,3 +240,32 @@ document.querySelectorAll(".faq-question").forEach(q => {
   }
 
 });
+
+/* =========================
+   TERMS PAGE
+========================= */
+
+const termsPage = document.getElementById("termsPage");
+const openTerms = document.getElementById("openTerms");
+const closeTerms = document.getElementById("closeTerms");
+
+function toggleMainContent(show) {
+  document.querySelectorAll("body > *:not(.kitty-header):not(.kitty-footer):not(#termsPage)")
+    .forEach(el => {
+      el.style.display = show ? "" : "none";
+    });
+}
+
+openTerms?.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  toggleMainContent(false);
+  termsPage.classList.add("show");
+
+  window.scrollTo(0, 0);
+});
+
+closeTerms?.addEventListener("click", () => {
+  toggleMainContent(true);
+  termsPage.classList.remove("show");
+});

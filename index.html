@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Dangokojima/Kittysiteimages@main/data/style.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Dangokojima/Kittysiteimages@main/data/homestyle.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Dangokojima/Kittysiteimages@main/data/termstyle.css">
+
 <script defer src="https://cdn.jsdelivr.net/gh/Dangokojima/Kittysiteimages@main/data/script.js"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -282,6 +284,24 @@
   </div>
 </div>
 
+<div id="termsPage" class="terms-page">
+
+  <div class="terms-container">
+
+    <h1>Termos de Serviço</h1>
+    <p class="terms-sub">
+      Ao solicitar uma comissão, você declara que leu e concorda com todos os termos abaixo.
+    </p>
+
+    <div class="terms-box">
+      <!-- SEUS TERMOS AQUI -->
+    </div>
+
+    <button id="closeTerms" class="cta">Voltar</button>
+
+  </div>
+
+</div>
 
 <div class="kitty-footer">
 
@@ -306,7 +326,7 @@
       </div>
 
       <div class="footer-col">
-        <a href="#terms" data-i18n="terms"></a>
+        <a href="#" id="openTerms" data-i18n="terms"></a>
         <a href="#faq" data-i18n="faq"></a>
         <a href="#privacy" data-i18n="privacy"></a>
       </div>
