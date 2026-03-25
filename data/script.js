@@ -260,3 +260,20 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 });
+
+const termsPage = document.getElementById("termsPage");
+const openTerms = document.getElementById("openTerms");
+const closeTerms = document.getElementById("closeTerms");
+const root = document.getElementById("kitty-root");
+
+openTerms?.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  termsPage.classList.add("show");
+  root.style.filter = "blur(6px)";
+});
+
+closeTerms?.addEventListener("click", () => {
+  termsPage.classList.remove("show");
+  root.style.filter = "";
+});
