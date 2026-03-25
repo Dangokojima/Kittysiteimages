@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-
+  removeCarrdWrapper();
   /* =========================
      BASE
   ========================= */
@@ -234,5 +234,9 @@ document.querySelectorAll(".faq-question").forEach(q => {
   document.querySelectorAll(".socials img").forEach(el=>{
     el.addEventListener("click", closeMenu);
   });
+
+  function removeCarrdWrapper() {
+    document.querySelector(".site-wrapper")?.remove();
+  }
 
 });
