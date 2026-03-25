@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   removeCarrdWrapper();
+
   /* =========================
      BASE
   ========================= */
@@ -9,7 +10,6 @@ document.addEventListener("DOMContentLoaded", () => {
      ELEMENTOS
   ========================= */
 
-  // UI geral
   const themeIcon = document.getElementById("themeIcon");
   const langText = document.getElementById("langText");
   const langIcon = document.getElementById("langIcon");
@@ -26,10 +26,38 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const closeIcon = document.getElementById("closeIcon");
 
-  // Services carousel
   const grid = document.querySelector(".services-grid");
   const leftArrow = document.querySelector(".arrow-side.left");
   const rightArrow = document.querySelector(".arrow-side.right");
+
+  /* =========================
+     TERMS (🔥 NOVO)
+  ========================= */
+
+  const termsPage = document.getElementById("termsPage");
+  const openTerms = document.getElementById("openTerms");
+  const closeTerms = document.getElementById("closeTerms");
+  const root = document.getElementById("kitty-root");
+
+  function toggleMainContent(show) {
+    if (root) {
+      root.style.display = show ? "" : "none";
+    }
+  }
+
+  openTerms?.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    toggleMainContent(false);
+    termsPage.classList.add("show");
+
+    window.scrollTo(0, 0);
+  });
+
+  closeTerms?.addEventListener("click", () => {
+    toggleMainContent(true);
+    termsPage.classList.remove("show");
+  });
 
   /* =========================
      ASSETS
@@ -42,31 +70,28 @@ document.addEventListener("DOMContentLoaded", () => {
 
   document.getElementById("closeBtn").onclick = closeMenu;
 
-  // Social icons
   document.querySelectorAll("[data-social]").forEach(el=>{
     el.src = `${BASE}/images/${el.dataset.social}.svg`;
   });
 
-/* =========================
-   FAQ ACCORDION
-========================= */
+  /* =========================
+     FAQ ACCORDION
+  ========================= */
 
-document.querySelectorAll(".faq-question").forEach(q => {
-  q.addEventListener("click", () => {
+  document.querySelectorAll(".faq-question").forEach(q => {
+    q.addEventListener("click", () => {
 
-    const item = q.parentElement;
+      const item = q.parentElement;
 
-    // fecha todos
-    document.querySelectorAll(".faq-item").forEach(i => {
-      i.classList.remove("active");
-      i.querySelector(".faq-icon").textContent = "+";
+      document.querySelectorAll(".faq-item").forEach(i => {
+        i.classList.remove("active");
+        i.querySelector(".faq-icon").textContent = "+";
+      });
+
+      item.classList.add("active");
+      item.querySelector(".faq-icon").textContent = "×";
     });
-
-    // abre o clicado
-    item.classList.add("active");
-    item.querySelector(".faq-icon").textContent = "×";
   });
-});
 
   /* =========================
      LANG
@@ -166,6 +191,7 @@ document.querySelectorAll(".faq-question").forEach(q => {
   /* =========================
      SERVICES CAROUSEL
   ========================= */
+
   function updateArrows() {
     if (!grid || !leftArrow || !rightArrow) return;
 
@@ -174,19 +200,16 @@ document.querySelectorAll(".faq-question").forEach(q => {
 
     const isOverflowing = maxScroll > 5;
 
-    // 👉 centraliza ou alinha
     grid.style.justifyContent = isOverflowing ? "flex-start" : "center";
 
     const TOLERANCE = 10;
 
-    // 👉 estado da seta esquerda
     if (current <= TOLERANCE) {
       leftArrow.classList.add("disabled");
     } else {
       leftArrow.classList.remove("disabled");
     }
 
-    // 👉 estado da seta direita
     if (current >= maxScroll - TOLERANCE) {
       rightArrow.classList.add("disabled");
     } else {
@@ -198,8 +221,6 @@ document.querySelectorAll(".faq-question").forEach(q => {
 
     function scrollAndUpdate(offset) {
       grid.scrollBy({ left: offset, behavior: "smooth" });
-
-      // 👇 garante atualização após animação
       setTimeout(updateArrows, 350);
     }
 
@@ -219,7 +240,6 @@ document.querySelectorAll(".faq-question").forEach(q => {
 
     window.addEventListener("resize", updateArrows);
 
-    // 👇 estado inicial correto
     setTimeout(updateArrows, 50);
   }
 
@@ -239,33 +259,4 @@ document.querySelectorAll(".faq-question").forEach(q => {
     document.querySelector(".site-wrapper")?.remove();
   }
 
-});
-
-/* =========================
-   TERMS PAGE
-========================= */
-
-const termsPage = document.getElementById("termsPage");
-const openTerms = document.getElementById("openTerms");
-const closeTerms = document.getElementById("closeTerms");
-
-function toggleMainContent(show) {
-  document.querySelectorAll("body > *:not(.kitty-header):not(.kitty-footer):not(#termsPage)")
-    .forEach(el => {
-      el.style.display = show ? "" : "none";
-    });
-}
-
-openTerms?.addEventListener("click", (e) => {
-  e.preventDefault();
-
-  toggleMainContent(false);
-  termsPage.classList.add("show");
-
-  window.scrollTo(0, 0);
-});
-
-closeTerms?.addEventListener("click", () => {
-  toggleMainContent(true);
-  termsPage.classList.remove("show");
 });

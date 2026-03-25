@@ -903,7 +903,7 @@ p, span, a, button {
 ========================= */
 
 .kitty-footer {
-  position: fixed;
+  position: relative;
   margin-top: auto;
   padding: 60px 20px;
 
