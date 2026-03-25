@@ -464,6 +464,38 @@ body {
   .menu-btn { display:flex; }
 }
 
+.scroll-indicator {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.arrow {
+  width: 16px;
+  height: 16px;
+  border-right: 2px solid #EED6C9;
+  border-bottom: 2px solid #EED6C9;
+  transform: rotate(45deg);
+  opacity: 0.8;
+
+  animation: arrowBounce 1.5s infinite;
+}
+
+@keyframes arrowBounce {
+  0% {
+    transform: rotate(45deg) translateY(0);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(6px) rotate(45deg);
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(45deg) translateY(0);
+    opacity: 0.6;
+  }
+}
+
 /* POPUP */
 .popup {
   display:none;
@@ -500,6 +532,9 @@ body {
   </p>
 
   <button class="cta font-serif">Venha conhecer</button>
+  <div class="scroll-indicator">
+    <span class="arrow"></span>
+  </div>
 </section>
 
 <header class="kitty-header">
