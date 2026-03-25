@@ -9,5 +9,15 @@
   "hero_desc": "Each commission is cultivated with care, subtlety, and attention to detail.\nFrom OCs to Vtubers, I craft stories that feel alive.",
   "hero_cta": "Explore my work",
   "portfolio_label": "Portfolio",
-  "portfolio_title": "Selected works"
+  "portfolio_title": "Selected works",
+  "services_label": "Services",
+  "services_title": "What I do",
+  "service_label1": "Character Design",
+  "service_desc1": "I bring memorable characters to life with personality and depth for games, stories, or mascots.",
+  "service_label2": "Custom Illustration",
+  "service_desc2": "Exclusive hand-crafted illustrations for gifts, personal use, or commercial projects.",
+  "service_label3": "PNGTuber/Live2D",
+  "service_desc3": "Bring your character to life. I handle design, illustration, and full motion setup for your avatar.",
+  "service_label4": "Emotes",
+  "service_desc4": "Enhance your stream with custom emotes tailored for every moment."
 }

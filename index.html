@@ -634,6 +634,109 @@ body {
   border-radius:12px;
 }
 
+/* =========================
+   SERVICES
+========================= */
+
+.services-section {
+  padding: 80px 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.services-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.services-header h2 {
+  font-size: 14px;
+  opacity: 0.7;
+  letter-spacing: 2px;
+  margin: 0;
+}
+
+.services-header h3 {
+  font-size: clamp(28px, 4vw, 40px);
+  margin: 0;
+}
+
+/* WRAPPER COM SETAS */
+.services-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* GRID */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  flex: 1;
+}
+
+/* CARD */
+.service-card {
+  background: linear-gradient(
+    to top,
+    rgba(168,85,247,0.6),
+    rgba(168,85,247,0.15)
+  );
+
+  border-radius: 12px;
+  padding: 20px;
+  text-align: left;
+
+  transition: 0.3s;
+}
+
+/* HOVER */
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(168,85,247,0.5);
+}
+
+/* ICON */
+.service-icon {
+  height: 24px;
+  margin-bottom: 12px;
+}
+
+/* TEXTOS */
+.service-card h4 {
+  margin: 0 0 8px 0;
+  font-size: 16px;
+}
+
+.service-card p {
+  margin: 0;
+  font-size: 13px;
+  opacity: 0.85;
+  line-height: 1.4;
+}
+
+/* SETAS LATERAIS */
+.arrow-side {
+  width: 20px;
+  opacity: 0.7;
+}
+
+.arrow-side.left {
+  transform: rotate(180deg);
+}
+
+/* MOBILE */
+@media (max-width:768px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .arrow-side {
+    display: none;
+  }
+}
+
 </style>
 </head>
 
@@ -672,6 +775,53 @@ body {
     <div class="card"><img src="gallery/4.png" class="pos-center"></div>
     <div class="card"><img src="gallery/5.png" class="pos-left"></div>
     <div class="card"><img src="gallery/6.png" class="pos-right"></div>
+
+  </div>
+
+</section>
+
+<section class="services-section">
+
+  <div class="services-header">
+    <h2 class="font-serif" data-i18n="services_label"></h2>
+    <h3 class="font-title" data-i18n="services_title"></h3>
+  </div>
+
+  <div class="services-wrapper">
+
+    <!-- seta esquerda -->
+    <img src="images/arrow.svg" class="arrow-side left">
+
+    <div class="services-grid">
+
+      <div class="service-card">
+        <img src="images/service_1.svg" class="service-icon">
+        <h4 data-i18n="service_label1"></h4>
+        <p data-i18n="service_desc1"></p>
+      </div>
+
+      <div class="service-card">
+        <img src="images/service_2.svg" class="service-icon">
+        <h4 data-i18n="service_label2"></h4>
+        <p data-i18n="service_desc2"></p>
+      </div>
+
+      <div class="service-card">
+        <img src="images/service_3.svg" class="service-icon">
+        <h4 data-i18n="service_label3"></h4>
+        <p data-i18n="service_desc3"></p>
+      </div>
+
+      <div class="service-card">
+        <img src="images/service_4.svg" class="service-icon">
+        <h4 data-i18n="service_label4"></h4>
+        <p data-i18n="service_desc4"></p>
+      </div>
+
+    </div>
+
+    <!-- seta direita -->
+    <img src="images/arrow.svg" class="arrow-side right">
 
   </div>
 
