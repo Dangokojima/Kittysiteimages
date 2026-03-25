@@ -47,12 +47,6 @@ body {
   font-size: 16px !important;
 }
 
-h1, h2, h3, h4, h5, h6,
-p, span, a, button {
-  font-family: inherit !important;
-  line-height: inherit !important;
-}
-
 /* FONTS */
 .font-title {
   font-family: 'UnifrakturCook', cursive;
