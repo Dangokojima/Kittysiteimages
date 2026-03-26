@@ -794,8 +794,10 @@ body {
 /* GRID */
 .reviews-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 280px); /* tamanho fixo igual service */
   gap: 30px;
+
+  justify-content: center; /* 👈 ESSENCIAL */
 }
 
 /* CARD */
@@ -845,13 +847,14 @@ body {
 
 @media (max-width: 900px) {
   .reviews-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, 280px);
   }
 }
 
 @media (max-width: 500px) {
   .reviews-grid {
     grid-template-columns: 1fr;
+    justify-content: center;
   }
 }
 
