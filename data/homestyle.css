@@ -283,6 +283,53 @@ h3 { font-size: clamp(18px, 1.2vw + 12px, 26px); }
 .faq-item.active .faq-answer { max-height: 200px; opacity: 1; margin-top: 10px; }
 
 /* =========================
+   TERMS (OVERLAY REAL)
+========================= */
+
+.terms-page {
+  position: fixed;
+  inset: 0;
+  background: var(--bg);
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+
+  padding: 120px 20px 60px;
+  overflow-y: auto;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  z-index: 999999;
+
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+/* quando abre */
+.terms-page.show {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* =========================
+   HOME STATE
+========================= */
+
+#kitty-root {
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* quando terms está aberto */
+#kitty-root.hidden {
+  opacity: 0;
+  transform: scale(0.98);
+  pointer-events: none;
+}
+
+/* =========================
    FOOTER (GLOBAL)
 ========================= */
 .kitty-footer {

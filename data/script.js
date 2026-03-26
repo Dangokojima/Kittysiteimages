@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const closeIcon = document.getElementById("closeIcon");
   const logoWhite = document.getElementById("logoWhite");
 
-  // Estrutura SPA
+  // SPA
   const kittyRoot = document.getElementById("kitty-root");
   const termsPage = document.getElementById("termsPage");
   const openTerms = document.getElementById("openTerms");
@@ -34,66 +34,71 @@ document.addEventListener("DOMContentLoaded", () => {
   const rightArrow = document.querySelector(".arrow-side.right");
 
   /* =========================
-     SISTEMA DE DEBUG
+     DEBUG
   ========================= */
   function debugLog(msg, obj = "") {
     console.log(`[KittyDebug] ${msg}`, obj);
   }
 
-/* =========================
-     TERMS & SPA LOGIC
+  /* =========================
+     TERMS & SPA
   ========================= */
-
   function updateView(showTerms = false) {
-    console.log("[KittyDebug] Trocando visão:", showTerms);
+    debugLog("Trocando visão:", showTerms);
 
     if (showTerms) {
-      kittyRoot.classList.remove("show");
-      termsPage.classList.add("show");
+      kittyRoot?.classList.add("hidden");
+      termsPage?.classList.add("show");
+      document.body.style.overflow = "hidden";
     } else {
-      termsPage.classList.remove("show");
-      kittyRoot.classList.add("show");
+      termsPage?.classList.remove("show");
+      kittyRoot?.classList.remove("hidden");
+      document.body.style.overflow = "";
     }
 
     window.scrollTo(0, 0);
   }
 
-  // Captura o clique de forma agressiva (impede o comportamento do link)
+  // 🔥 LISTENERS (isso faltava)
   if (openTerms) {
     openTerms.addEventListener("click", (e) => {
-      console.log("[KittyDebug] Clique detectado no #openTerms!");
-      e.preventDefault(); // Impede o link de dar scroll ou recarregar
-      e.stopPropagation(); // Impede o Carrd de interferir
+      e.preventDefault();
+      e.stopPropagation();
       updateView(true);
     });
   } else {
-    console.error("[KittyDebug] ERRO: Não achei o elemento #openTerms no HTML!");
+    debugLog("ERRO: #openTerms não encontrado");
   }
 
   if (closeTerms) {
     closeTerms.addEventListener("click", (e) => {
-      console.log("[KittyDebug] Clique detectado no #closeTerms!");
       e.preventDefault();
       updateView(false);
     });
   }
 
+  // ESC fecha
+  window.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") updateView(false);
+  });
+
   /* =========================
-     ASSETS & SOCIALS
+     ASSETS
   ========================= */
   if (langIcon) langIcon.src = `${BASE}/images/lang.svg`;
   if (menuIcon) menuIcon.src = `${BASE}/images/menu.svg`;
   if (closeIcon) closeIcon.src = `${BASE}/images/close.svg`;
   if (logoWhite) logoWhite.src = `${BASE}/images/Logowhite.png`;
 
-  document.getElementById("closeBtn").onclick = closeMenu;
+  const closeBtn = document.getElementById("closeBtn");
+  if (closeBtn) closeBtn.onclick = closeMenu;
 
   document.querySelectorAll("[data-social]").forEach(el => {
     el.src = `${BASE}/images/${el.dataset.social}.svg`;
   });
 
   /* =========================
-     FAQ ACCORDION
+     FAQ
   ========================= */
   document.querySelectorAll(".faq-question").forEach(q => {
     q.addEventListener("click", () => {
@@ -113,7 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   /* =========================
-     TRADUÇÃO (I18N)
+     I18N
   ========================= */
   let currentLang = localStorage.getItem("lang") || (navigator.language.includes("pt") ? "pt" : "en");
   let translations = {};
@@ -131,10 +136,9 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll("[data-i18n]").forEach(el => {
       const key = el.dataset.i18n;
       const value = translations[key];
-      if (value) {
-        el.innerHTML = value.replace(/\n/g, "<br>");
-      }
+      if (value) el.innerHTML = value.replace(/\n/g, "<br>");
     });
+
     if (langText) langText.textContent = currentLang === "pt" ? "BR" : "EN";
   }
 
@@ -147,7 +151,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   /* =========================
-     TEMA (DARK/LIGHT)
+     TEMA
   ========================= */
   function updateTheme() {
     const light = document.body.classList.contains("light");
@@ -168,7 +172,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   /* =========================
-     MENU MOBILE
+     MENU
   ========================= */
   menuBtn.onclick = () => {
     sidePanel.classList.toggle("open");
@@ -183,7 +187,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* =========================
-     POPUP FORMULÁRIO
+     POPUP
   ========================= */
   const links = {
     pt: "https://tally.so/r/gD0Qq1",
@@ -193,6 +197,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function openForm() {
     popup.classList.add("show");
     popupText.textContent = translations.popup || "...";
+
     setTimeout(() => {
       window.open(links[currentLang], "_blank");
       popup.classList.remove("show");
@@ -200,26 +205,30 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   if (openPopup) openPopup.onclick = openForm;
-  if (mobilePopup) mobilePopup.onclick = () => {
-    closeMenu();
-    openForm();
-  };
+
+  if (mobilePopup) {
+    mobilePopup.onclick = () => {
+      closeMenu();
+      openForm();
+    };
+  }
 
   /* =========================
-     SERVICES CAROUSEL
+     CAROUSEL
   ========================= */
   function updateArrows() {
     if (!grid || !leftArrow || !rightArrow) return;
+
     const maxScroll = grid.scrollWidth - grid.clientWidth;
     const current = Math.round(grid.scrollLeft);
     const isOverflowing = maxScroll > 5;
 
     grid.style.justifyContent = isOverflowing ? "flex-start" : "center";
+
     const TOLERANCE = 10;
     leftArrow.classList.toggle("disabled", current <= TOLERANCE);
     rightArrow.classList.toggle("disabled", current >= maxScroll - TOLERANCE);
-    
-    // Esconde setas se não houver overflow
+
     leftArrow.style.display = isOverflowing ? "block" : "none";
     rightArrow.style.display = isOverflowing ? "block" : "none";
   }
@@ -229,21 +238,20 @@ document.addEventListener("DOMContentLoaded", () => {
       grid.scrollBy({ left: offset, behavior: "smooth" });
       setTimeout(updateArrows, 350);
     }
+
     leftArrow.onclick = () => scrollAndUpdate(-300);
     rightArrow.onclick = () => scrollAndUpdate(300);
+
     grid.addEventListener("scroll", () => requestAnimationFrame(updateArrows));
     window.addEventListener("resize", updateArrows);
     setTimeout(updateArrows, 50);
   }
 
   /* =========================
-     LOADER & HELPERS
+     LOADER
   ========================= */
-  document.querySelectorAll(".side-menu a, .socials img").forEach(el => {
-    el.addEventListener("click", closeMenu);
-  });
-
   const loader = document.getElementById("loader");
+
   function hideLoader() {
     if (loader) loader.classList.add("hide");
     if (kittyRoot) kittyRoot.classList.add("show");
