@@ -236,7 +236,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // TERMS SPA
   // =========================
 
-  const kittyRoot = document.getElementById("kitty-root");
+  const kittyRoot = document.getElementById("homepage-content");
   const termsPage = document.getElementById("termsPage");
   const openTerms = document.getElementById("openTerms");
   const closeTerms = document.getElementById("closeTerms");
@@ -246,7 +246,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (showTerms) {
       if (kittyRoot) kittyRoot.classList.add("hidden");
       if (termsPage) termsPage.classList.add("show");
-      document.body.style.overflow = "hidden";
+      document.documentElement.style.overflow = "hidden";
     } else {
       if (termsPage) termsPage.classList.remove("show");
       if (kittyRoot) kittyRoot.classList.remove("hidden");
@@ -297,7 +297,7 @@ document.addEventListener("DOMContentLoaded", () => {
       tallyPT.classList.remove("active");
     }
 
-    document.getElementById("homepage-content").style.display = "none";
+    kittyRoot.classList.add("hidden");
     tallyPage.classList.add("show");
     document.body.style.overflow = "hidden";
 
@@ -306,7 +306,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function closeTallyPage() {
     tallyPage.classList.remove("show");
-    document.getElementById("homepage-content").style.display = "";
+    kittyRoot.classList.remove("hidden");
     document.body.style.overflow = "";
   }
 
