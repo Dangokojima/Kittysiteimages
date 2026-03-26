@@ -39,54 +39,47 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 /* =========================
-     CONTROLE DE VISÃO (SPA)
+     TERMS & SPA LOGIC
   ========================= */
+
   function updateView(showTerms = false) {
-    debugLog("Trocando visão. Mostrar termos?", showTerms);
-
-    if (!kittyRoot || !termsPage) {
-      debugLog("ERRO: kittyRoot ou termsPage não encontrados no DOM!");
-      return;
-    }
-
+    console.log("[KittyDebug] Trocando visão. Mostrar termos?", showTerms);
+    
     if (showTerms) {
-      kittyRoot.style.display = "none";
-      termsPage.style.display = "block"; // Mudamos para block para garantir visibilidade
-      termsPage.classList.add("show");
-      debugLog("Home escondida, Termos exibidos.");
+      if(kittyRoot) kittyRoot.style.display = "none";
+      if(termsPage) {
+        termsPage.style.display = "block"; // Força a exibição
+        setTimeout(() => termsPage.classList.add("show"), 10);
+      }
     } else {
-      termsPage.style.display = "none";
-      termsPage.classList.remove("show");
-      kittyRoot.style.display = "flex";
-      debugLog("Termos escondidos, Home exibida.");
+      if(termsPage) {
+        termsPage.classList.remove("show");
+        termsPage.style.display = "none";
+      }
+      if(kittyRoot) {
+        kittyRoot.style.display = "flex";
+        setTimeout(() => kittyRoot.classList.add("show"), 10);
+      }
     }
-
     window.scrollTo(0, 0);
     window.dispatchEvent(new Event('resize'));
-    setTimeout(updateArrows, 100);
   }
 
-  /* =========================
-     TERMS (Eventos com Verificação)
-  ========================= */
-  debugLog("Verificando botões de termos...");
-  debugLog("Botão Open:", openTerms);
-  debugLog("Botão Close:", closeTerms);
-
+  // Captura o clique de forma agressiva (impede o comportamento do link)
   if (openTerms) {
     openTerms.addEventListener("click", (e) => {
-      debugLog("Clique detectado no botão de abrir termos!");
-      e.preventDefault();
-      e.stopPropagation(); // Impede o Carrd de resetar a página
+      console.log("[KittyDebug] Clique detectado no #openTerms!");
+      e.preventDefault(); // Impede o link de dar scroll ou recarregar
+      e.stopPropagation(); // Impede o Carrd de interferir
       updateView(true);
     });
   } else {
-    debugLog("AVISO: Elemento #openTerms não foi encontrado!");
+    console.error("[KittyDebug] ERRO: Não achei o elemento #openTerms no HTML!");
   }
 
   if (closeTerms) {
     closeTerms.addEventListener("click", (e) => {
-      debugLog("Clique detectado no botão de fechar termos!");
+      console.log("[KittyDebug] Clique detectado no #closeTerms!");
       e.preventDefault();
       updateView(false);
     });
