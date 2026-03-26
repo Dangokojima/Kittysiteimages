@@ -76,7 +76,7 @@ document.querySelectorAll(".faq-question").forEach(q => {
   let translations = {};
 
   function loadTranslations(lang){
-    fetch(`${BASE}/data/${lang}.json`)
+    fetch(`${BASE}/data/${lang}.json?v=${Date.now()}`)
       .then(r=>r.json())
       .then(data=>{
         translations = data;
