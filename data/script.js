@@ -253,15 +253,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const loader = document.getElementById("loader");
   const root = document.getElementById("kitty-root");
 
-  // espera tudo carregar (imagens também)
-  window.addEventListener("load", () => {
+  function hideLoader() {
+    loader.classList.add("hide");
+    root.classList.add("show");
+  }
 
-    // pequeno delay pra ficar bonito
-    setTimeout(() => {
-      loader.classList.add("hide");
-      root.classList.add("show");
-    }, 4000);
+  // 👉 garante que vai sair SEMPRE
+  setTimeout(hideLoader, 1500);
 
-  });
+  // 👉 tenta sair mais cedo se carregar rápido
+  window.addEventListener("load", hideLoader);
 
 });

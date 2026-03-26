@@ -33,6 +33,12 @@
   transform: none !important; /* 👈 evita zoom maluco */
 }
 
+#loader img {
+  width: 80px !important;
+  max-width: 80px !important;
+  height: auto !important;
+}
+
 /* BOUNCE */
 @keyframes bounce {
   0%, 100% {
