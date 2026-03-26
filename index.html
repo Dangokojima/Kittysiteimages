@@ -31,7 +31,7 @@
     </nav>
 
     <div class="header-right">
-      <button id="openPopup" class="cta font-serif" data-i18n="cta"></button>
+      <button id="openTally" class="cta font-serif" data-i18n="cta"></button>
       <button id="themeToggle" class="icon-btn"><img id="themeIcon"></button>
       <button id="langToggle" class="icon-btn lang-btn font-buttons">
         <img id="langIcon"><span id="langText">BR</span>
@@ -182,6 +182,38 @@
     </div>
   </section>
 
+  <div id="tallyPage" class="terms-page">
+
+    <div class="terms-container" style="max-width: 1000px; width: 100%;">
+
+      <button id="closeTally" class="cta" style="margin-bottom:20px;">
+        ← Voltar
+      </button>
+
+      <!-- PT -->
+      <iframe 
+        id="tallyPT"
+        data-tally-src="https://tally.so/embed/gD0Qq1?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+        loading="lazy"
+        width="100%"
+        height="1000"
+        frameborder="0">
+      </iframe>
+
+      <!-- EN -->
+      <iframe 
+        id="tallyEN"
+        data-tally-src="https://tally.so/embed/wb5pJ6?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+        loading="lazy"
+        width="100%"
+        height="1000"
+        frameborder="0">
+      </iframe>
+
+    </div>
+
+  </div>
+
   <footer class="kitty-footer">
     <div class="footer-container">
       <div class="footer-left">
@@ -226,7 +258,7 @@
       <a href="#portfolio" class="font-buttons" data-i18n="portfolio">Trabalhos</a>
       <a href="#contact" class="font-buttons" data-i18n="contact">Contato</a>
       <a href="#faq" class="font-buttons" data-i18n="faq">FAQ</a>
-      <button id="mobilePopup" class="mobile-cta font-serif" data-i18n="cta"></button>
+      <button id="mobileTally" class="mobile-cta font-serif" data-i18n="cta"></button>
       <div class="socials">
         <a href="https://bsky.app/profile/kittyhikari.bsky.social" target="_blank"><img data-social="Blue"></a>
         <a href="https://www.instagram.com/kitty_hikari/" target="_blank"><img data-social="Insta"></a>

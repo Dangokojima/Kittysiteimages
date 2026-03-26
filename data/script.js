@@ -272,4 +272,79 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // =========================
+  // TALLY SPA
+  // =========================
+
+  const tallyPage = document.getElementById("tallyPage");
+  const openTally = document.getElementById("openTally");
+  const mobileTally = document.getElementById("mobileTally");
+  const closeTally = document.getElementById("closeTally");
+  const tallyPT = document.getElementById("tallyPT");
+  const tallyEN = document.getElementById("tallyEN");
+
+  function openTallyPage() {
+    if (!tallyPage) return;
+
+    const lang = localStorage.getItem("lang") || "pt";
+
+    // 👇 ativa o certo
+    if (lang === "pt") {
+      tallyPT.classList.add("active");
+      tallyEN.classList.remove("active");
+    } else {
+      tallyEN.classList.add("active");
+      tallyPT.classList.remove("active");
+    }
+
+    document.getElementById("homepage-content").style.display = "none";
+    tallyPage.classList.add("show");
+    document.body.style.overflow = "hidden";
+
+    loadTallyScript();
+  }
+
+  function closeTallyPage() {
+    tallyPage.classList.remove("show");
+    document.getElementById("homepage-content").style.display = "";
+    document.body.style.overflow = "";
+  }
+
+  // botão abrir
+  openTally?.addEventListener("click", (e) => {
+    e.preventDefault();
+    openTallyPage();
+  });
+
+  mobileTally?.addEventListener("click", (e) => {
+    e.preventDefault();
+    closeMenu();
+    openTallyPage();
+  });
+
+  // botão fechar
+  closeTally?.addEventListener("click", closeTallyPage);
+
+  // =========================
+  // LOAD SCRIPT TALLY
+  // =========================
+
+  function loadTallyScript() {
+    const w = "https://tally.so/widgets/embed.js";
+
+    if (!document.querySelector(`script[src="${w}"]`)) {
+      const s = document.createElement("script");
+      s.src = w;
+      s.onload = () => {
+        if (typeof Tally !== "undefined") {
+          Tally.loadEmbeds();
+        }
+      };
+      document.body.appendChild(s);
+    } else {
+      if (typeof Tally !== "undefined") {
+        Tally.loadEmbeds();
+      }
+    }
+  }
 });

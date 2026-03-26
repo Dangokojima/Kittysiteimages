@@ -1043,3 +1043,21 @@ body {
   transform: scale(0.98);
   transition: 0.4s ease;
 }
+
+#tallyPage iframe {
+  border-radius: 12px;
+}
+
+#tallyPage .terms-container {
+  max-width: 900px;
+}
+
+#tallyEN,
+#tallyPT {
+  display: none;
+}
+
+#tallyEN.active,
+#tallyPT.active {
+  display: block;
+}
