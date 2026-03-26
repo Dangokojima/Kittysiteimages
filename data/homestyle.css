@@ -214,22 +214,19 @@ h3 { font-size: clamp(18px, 1.2vw + 12px, 26px); }
 }
 
 /* Grid que scrolla */
-.services-grid { 
-  display: flex !important;
+.services-grid {
+  display: flex;
   gap: clamp(15px, 3vw, 30px);
 
   overflow-x: auto;
-  overflow-y: visible;
-
-  width: 100%;
-  padding: 30px 10px;
-
   scroll-behavior: smooth;
 
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+  padding: 30px 10px;
+  width: 100%;
 
-  justify-content: flex-start !important;
+  justify-content: flex-start;
+
+  scrollbar-width: none;
 }
 
 .services-grid::-webkit-scrollbar {
