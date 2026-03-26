@@ -796,9 +796,9 @@ body {
   display: flex;
   gap: 30px;
 
-  justify-content: center; /* centraliza */
-
-  flex-wrap: wrap; /* quebra linha no mobile */
+  justify-content: center;
+  flex: 1;
+  min-width: 0;
 }
 
 /* CARD */
@@ -846,18 +846,6 @@ body {
   opacity: 0.85;
 }
 
-@media (max-width: 900px) {
-  .reviews-grid {
-    grid-template-columns: repeat(2, 280px);
-  }
-}
-
-@media (max-width: 500px) {
-  .reviews-grid {
-    grid-template-columns: 1fr;
-    justify-content: center;
-  }
-}
 
 /* =========================
    FAQ
