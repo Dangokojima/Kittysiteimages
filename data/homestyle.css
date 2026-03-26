@@ -66,43 +66,107 @@ h3 { font-size: clamp(18px, 1.2vw + 12px, 26px); }
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-12px); }
 }
-
 /* =========================
-   HEADER (GLOBAL)
+   HEADER (GLOBAL - ATUALIZADO)
 ========================= */
 .kitty-header {
   position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
-  padding: 15px clamp(16px, 4vw, 20px);
+  padding: 15px clamp(16px, 4vw, 30px);
+  
   display: flex;
   align-items: center;
+  justify-content: space-between; /* Distribui Left, Center e Right */
+  
   background: linear-gradient(to bottom, rgba(26,22,37,.95), rgba(26,22,37,0));
   z-index: 1000;
 }
 
-.logo-img { height: 128px; transition: 0.3s; }
+/* Container Esquerdo */
+.header-left {
+  display: flex;
+  align-items: center;
+  flex: 1; /* Ocupa 1 parte do espaço */
+  position: relative;
+  min-height: 50px;
+}
 
-.header-center { flex: 1; display: flex; justify-content: center; gap: 10px; }
-.header-center a { text-decoration: none; color: #fff; position: relative; }
-.header-center a span { padding: 4px 12px; display: inline-block; position: relative; }
+/* Logo "Vazando" (Mantendo o estilo da imagem) */
+.logo-img {
+  position: absolute;
+  top: -10px; /* Ajuste conforme necessário para centralizar no header */
+  left: 0;
+  height: clamp(80px, 10vw, 130px); /* Tamanho responsivo */
+  object-fit: contain;
+  transition: transform 0.3s ease;
+  pointer-events: none; /* Evita que o logo bloqueie cliques em botões próximos */
+}
+
+/* Menu Centralizado */
+.header-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(5px, 1vw, 15px);
+  flex: 2; /* Ocupa o dobro do espaço dos lados para garantir o centro real */
+}
+
+.header-center a {
+  text-decoration: none;
+  color: #fff;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.header-center a span {
+  padding: 4px 12px;
+  display: inline-block;
+  position: relative;
+  transition: color 0.3s;
+}
 
 /* Hover Glow Effect */
 .header-center a span::after {
-  content: ""; position: absolute; inset: 0;
-  border: 2px solid var(--gold); border-radius: 25px;
-  opacity: 0; transform: scale(0.95);
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 2px solid var(--gold);
+  border-radius: 25px;
+  opacity: 0;
+  transform: scale(0.95);
   transition: all 0.3s ease;
 }
+
 .header-center a:hover span::after {
-  opacity: 1; transform: scale(1);
+  opacity: 1;
+  transform: scale(1);
   box-shadow: 0 0 15px var(--gold);
   animation: pulseBorder 2s infinite;
 }
 
+/* Container Direito */
+.header-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  flex: 1; /* Ocupa 1 parte do espaço (equilibrando com o Left) */
+}
+
+/* Animação do Hover */
 @keyframes pulseBorder {
   0%, 100% { transform: scale(1); }
   50% { transform: scale(1.05); }
+}
+
+/* Ajuste Mobile */
+@media (max-width: 768px) {
+  .header-center { display: none; }
+  .header-right #openPopup { display: none; }
+  .logo-img { height: 80px; top: 0; }
 }
 
 /* =========================
