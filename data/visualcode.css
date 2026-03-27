@@ -986,8 +986,9 @@ body {
   padding: 60px 20px;
 
   background: linear-gradient(
-    135deg,
-    #2a1f3d,
+    to bottom,
+    transparent,
+    #2a1f3d 40%,
     #6b3fa0
   );
 }
