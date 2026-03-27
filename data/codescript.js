@@ -99,7 +99,13 @@ document.addEventListener("DOMContentLoaded", () => {
     langToggle.onclick = () => {
       currentLang = currentLang==="pt"?"en":"pt";
       localStorage.setItem("lang",currentLang);
+
       loadTranslations(currentLang);
+
+      // 👇 FECHA TALLY SE ESTIVER ABERTO
+      if (tallyPage?.classList.contains("show")) {
+        closeTallyPage();
+      }
     };
   }
 
@@ -251,10 +257,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
   navLinks.forEach(link => {
     link.addEventListener("click", () => {
-      // se o terms estiver aberto, fecha
-      if (termsPage && termsPage.classList.contains("show")) {
+
+      // fecha TERMS
+      if (termsPage?.classList.contains("show")) {
         updateView(false);
       }
+
+      // fecha TALLY
+      if (tallyPage?.classList.contains("show")) {
+        closeTallyPage();
+      }
+
     });
   });
   
