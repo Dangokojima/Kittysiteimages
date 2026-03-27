@@ -53,6 +53,7 @@ body {
   transform: translateX(-50%);
   text-align: center;
   max-width: 800px;
+  min-width: 300px;
   padding: 0 20px;
 }
 
@@ -1078,6 +1079,11 @@ body {
     align-items: center;
     text-align: center;
     gap: 30px;
+  }
+
+  .footer-contact,
+  .footer-email {
+    text-align: center;
   }
 
   /* LOGO */
