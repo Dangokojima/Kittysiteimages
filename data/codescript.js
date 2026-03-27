@@ -247,17 +247,32 @@ document.addEventListener("DOMContentLoaded", () => {
   const termsPage = document.getElementById("termsPage");
   const openTerms = document.getElementById("openTerms");
   const closeTerms = document.getElementById("closeTerms");
+  const navLinks = document.querySelectorAll('a[href^="#"]');
 
+  navLinks.forEach(link => {
+    link.addEventListener("click", () => {
+      // se o terms estiver aberto, fecha
+      if (termsPage && termsPage.classList.contains("show")) {
+        updateView(false);
+      }
+    });
+  });
+  
   function updateView(showTerms = false) {
 
     if (showTerms) {
       if (kittyRoot) kittyRoot.classList.add("hidden");
       if (termsPage) termsPage.classList.add("show");
+
       document.documentElement.style.overflow = "hidden";
+      document.body.classList.add("terms-open"); // 👈 ADICIONA
+
     } else {
       if (termsPage) termsPage.classList.remove("show");
       if (kittyRoot) kittyRoot.classList.remove("hidden");
+
       document.documentElement.style.overflow = "";
+      document.body.classList.remove("terms-open"); // 👈 REMOVE
     }
 
     window.scrollTo(0, 0);
@@ -293,7 +308,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const html = await res.text();
 
       container.innerHTML = `
-        <h1 class="font-title">Termos de Serviço</h1>
+        <h1 class="font-title">${translations.terms_title || "Terms"}</h1>
         ${html}
         <button id="closeTerms" class="cta">Voltar</button>
       `;
