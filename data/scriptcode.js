@@ -257,7 +257,7 @@ document.addEventListener("DOMContentLoaded", () => {
     } else {
       if (termsPage) termsPage.classList.remove("show");
       if (kittyRoot) kittyRoot.classList.remove("hidden");
-      document.body.style.overflow = "";
+      document.documentElement.style.overflow = "";
     }
 
     window.scrollTo(0, 0);
