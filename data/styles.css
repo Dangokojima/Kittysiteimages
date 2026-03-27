@@ -776,6 +776,7 @@ body {
 .reviews-wrapper {
   display: flex;
   align-items: center;
+  justify-content: center; /* 👈 ISSO AQUI */
   gap: 20px;
 }
 
@@ -804,7 +805,7 @@ body {
 /* CARD IGUAL STRUCTURE, MAS VISUAL DIFERENTE */
 .review-card {
   width: 280px;
-  height: 180;
+  min-height: 180px;
 
   flex: 0 0 auto;
 
@@ -821,18 +822,13 @@ body {
   transition: 0.3s;
 }
 
-.review-card h4 {
-  margin: 0;
-}
-
-.review-card p {
-  margin: 0;
-  line-height: 1.4;
-  opacity: 0.85;
-}
-
 .quote-icon {
   margin-bottom: 6px;
+}
+
+.reviews-header {
+  text-align: center;
+  margin-bottom: 40px;
 }
 
 /* HOVER (leve só pra não ficar morto) */
@@ -844,6 +840,30 @@ body {
 .quote-icon {
   height: 24px;
   margin-bottom: 12px;
+}
+
+.reviews-header h2 {
+  font-size: 14px;
+  opacity: 0.7;
+  letter-spacing: 2px;
+  margin: 0;
+}
+
+.reviews-header h3 {
+  font-size: clamp(28px, 4vw, 40px);
+  margin: 0;
+}
+
+.review-card h4 {
+  margin: 0 0 8px 0;
+  font-size: 16px;
+}
+
+.review-card p {
+  margin: 0;
+  font-size: 13px;
+  opacity: 0.85;
+  line-height: 1.4;
 }
 
 /* MOBILE */
