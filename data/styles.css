@@ -782,7 +782,7 @@ body {
 /* GRID IGUAL SERVICES */
 .reviews-grid {
   display: flex;
-  gap: 30px;
+  gap: 20px;
 
   overflow-x: auto;
   overflow-y: visible;
@@ -804,7 +804,7 @@ body {
 /* CARD IGUAL STRUCTURE, MAS VISUAL DIFERENTE */
 .review-card {
   width: 280px;
-  height: 150px;
+  height: 180;
 
   flex: 0 0 auto;
 
@@ -818,8 +818,21 @@ body {
   align-items: flex-start;
 
   text-align: left;
-
   transition: 0.3s;
+}
+
+.review-card h4 {
+  margin: 0;
+}
+
+.review-card p {
+  margin: 0;
+  line-height: 1.4;
+  opacity: 0.85;
+}
+
+.quote-icon {
+  margin-bottom: 6px;
 }
 
 /* HOVER (leve só pra não ficar morto) */
