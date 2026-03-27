@@ -268,6 +268,7 @@ document.addEventListener("DOMContentLoaded", () => {
     openTerms.addEventListener("click", (e) => {
       e.preventDefault();
       updateView(true);
+      loadTerms();
     });
   }
 
@@ -277,6 +278,35 @@ document.addEventListener("DOMContentLoaded", () => {
       e.preventDefault();
       updateView(false);
     });
+  }
+
+  async function loadTerms() {
+    const container = document.querySelector(".terms-container");
+
+    if (!container) return;
+
+    const lang = localStorage.getItem("lang") || "pt";
+    const file = lang === "pt" ? "terms-pt.html" : "terms-en.html";
+
+    try {
+      const res = await fetch(`./data/${file}?v=${Date.now()}`);
+      const html = await res.text();
+
+      container.innerHTML = `
+        <h1 class="font-title">Termos de Serviço</h1>
+        ${html}
+        <button id="closeTerms" class="cta">Voltar</button>
+      `;
+      
+      // rebind do botão
+      document.getElementById("closeTerms")?.addEventListener("click", (e)=>{
+        e.preventDefault();
+        updateView(false);
+      });
+
+    } catch (err) {
+      console.error("Erro ao carregar termos:", err);
+    }
   }
 
   // =========================
