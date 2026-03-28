@@ -1207,6 +1207,44 @@ body {
   transition: 0.4s ease;
 }
 
+/* =========================
+   HARD RESET TERMS (ANTI-CARRD)
+========================= */
+
+.terms-box,
+.terms-box * {
+  all: revert;
+  box-sizing: border-box;
+}
+
+/* reaplica teu estilo depois do reset */
+.terms-box {
+  font-family: 'Inika', serif !important;
+  line-height: 1.8 !important;
+  color: #eee !important;
+
+  white-space: pre-line; /* 👈 MUITO IMPORTANTE pro \n do JSON */
+}
+
+/* títulos */
+.terms-box h1,
+.terms-box h2,
+.terms-box h3 {
+  margin: 20px 0 10px;
+  font-weight: bold;
+}
+
+/* parágrafos */
+.terms-box p {
+  margin-bottom: 12px;
+}
+
+/* listas */
+.terms-box li {
+  margin-left: 20px;
+  margin-bottom: 6px;
+}
+
 #tallyPage iframe {
   border-radius: 12px;
 }
