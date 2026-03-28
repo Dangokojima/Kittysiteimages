@@ -1238,9 +1238,10 @@ body {
 
 /* TÍTULOS */
 .terms-content h2 {
-  font-weight: 700;
+  font-weight: 900;
   font-size: 22px;
   margin: 28px 0 12px;
+  font-family: 'Inter', serif;
 }
 
 /* PARÁGRAFOS */
