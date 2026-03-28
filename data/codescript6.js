@@ -398,6 +398,13 @@ document.addEventListener("DOMContentLoaded", () => {
   // botão fechar
   closeTally?.addEventListener("click", closeTallyPage);
 
+  document.querySelectorAll("[data-open-tally]").forEach(el => {
+    el.addEventListener("click", (e) => {
+      e.preventDefault();
+      openTallyPage(); // 👈 MESMA função
+    });
+  });
+
   // =========================
   // LOAD SCRIPT TALLY
   // =========================
