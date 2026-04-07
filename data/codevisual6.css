@@ -322,38 +322,14 @@ body {
 
   transform: translateX(100%);
   transition: 0.4s ease;
-  z-index: 99999;
+  z-index: 2;
 }
 
 .side-panel.open {
   transform: translateX(0);
 }
 
-.close-btn {
-  position: absolute;
-  top: 20px;
-  left: 20px;
 
-  cursor: pointer;
-}
-
-.close-btn img {
-  height: 22px;
-
-  transition:
-    transform 0.25s ease,
-    filter 0.25s ease;
-}
-
-/* HOVER */
-.close-btn:hover img {
-  transform: scale(1.15);
-
-  filter:
-    drop-shadow(0 0 6px rgba(255, 186, 75, 0.7))
-    drop-shadow(0 0 12px rgba(255, 186, 75, 0.4))
-    brightness(1.2);
-}
 
 /* LOGO */
 .side-logo {
