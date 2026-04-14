@@ -570,4 +570,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
   }
 
+  const imagePopup = document.getElementById("imagePopup");
+  const popupImg = document.getElementById("popupImg");
+
+  // abrir
+  document.addEventListener("click", (e) => {
+
+    const img = e.target.closest(".gallery-item img");
+    if (!img) return;
+
+    popupImg.src = img.src;
+    imagePopup.classList.add("show");
+  });
+
+  // fechar clicando fora
+  imagePopup?.addEventListener("click", () => {
+    imagePopup.classList.remove("show");
+  });
+
 });

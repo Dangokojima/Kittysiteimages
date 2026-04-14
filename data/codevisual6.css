@@ -1482,3 +1482,43 @@ body:not(.light) #tallyPage iframe {
     column-count: 1;
   }
 }
+
+.gallery-item img {
+  cursor: pointer;
+}
+
+/* POPUP */
+.image-popup {
+  position: fixed;
+  inset: 0;
+
+  background: var(--overlay-bg);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s;
+
+  z-index: 999;
+}
+
+.image-popup.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* IMAGEM (aqui sim controla tamanho) */
+.image-popup img {
+  max-width: 90vw;
+  max-height: 90vh;
+
+  width: auto;
+  height: auto;
+
+  object-fit: contain;
+
+  border-radius: 12px;
+}
