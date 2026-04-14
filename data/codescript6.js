@@ -306,7 +306,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (openTerms) {
     openTerms.addEventListener("click", (e) => {
       e.preventDefault();
-      updateView(true);
+      changePage("terms");
       loadTerms();
     });
   }
@@ -397,13 +397,13 @@ document.addEventListener("DOMContentLoaded", () => {
   // botão abrir
   openTally?.addEventListener("click", (e) => {
     e.preventDefault();
-    openTallyPage();
+    changePage("tally");
   });
 
   mobileTally?.addEventListener("click", (e) => {
     e.preventDefault();
     closeMenu();
-    openTallyPage();
+    changePage("tally");
   });
 
   // botão fechar
@@ -412,7 +412,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll("[data-open-tally]").forEach(el => {
     el.addEventListener("click", (e) => {
       e.preventDefault();
-      openTallyPage(); // 👈 MESMA função
+      changePage("tally");
     });
   });
 
@@ -462,7 +462,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   openPortfolio?.addEventListener("click", (e)=>{
     e.preventDefault();
-    openPortfolioPage();
+    changePage("portfolio");
   });
 
   function setupPortfolioFilters(){
@@ -510,8 +510,39 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll('a[href="#portfolio"]').forEach(el=>{
     el.addEventListener("click",(e)=>{
       e.preventDefault();
-      openPortfolioPage();
+      changePage("portfolio");
     });
   });
+
+  function changePage(page){
+
+    // fecha tudo
+    if (termsPage?.classList.contains("show")) {
+      updateView(false);
+    }
+
+    if (tallyPage?.classList.contains("show")) {
+      closeTallyPage();
+    }
+
+    if (portfolioPage?.classList.contains("show")) {
+      closePortfolioPage();
+    }
+
+    // abre o correto
+    if (page === "terms") {
+      updateView(true);
+      loadTerms();
+    }
+
+    if (page === "tally") {
+      openTallyPage();
+    }
+
+    if (page === "portfolio") {
+      openPortfolioPage();
+    }
+
+  }
 
 });
