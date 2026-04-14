@@ -555,6 +555,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
           div.innerHTML = `
             <img src="./gallery/${category}/${item.file}">
+            <span data-i18n="filter_${category}"></span>
           `;
 
           grid.appendChild(div);
@@ -563,6 +564,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       });
 
+    applyTranslations();
     } catch (err) {
       console.error("Erro ao carregar gallery:", err);
     }
