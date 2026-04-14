@@ -18,6 +18,7 @@
   /* CTA */
   --cta-grad-start: #A236D3;
   --cta-grad-end: #541C6D;
+  --cta-text: var(--text);
 
   /* GRADIENTS */
   --title-grad-1: #FFFFFF;
@@ -86,6 +87,7 @@ body.theme-light {
   --border-soft: rgba(26,22,37,0.2);
 
   /* CTA (mantém) */
+  --cta-text: #ffffff;
   /* --cta-grad-start */
   /* --cta-grad-end */
 
@@ -342,7 +344,7 @@ body.theme-light {
   );
 
   border: none;
-  color: var(--text);
+  color: var(--cta-text);
   padding: 6px 14px;
   border-radius: 25px;
 
