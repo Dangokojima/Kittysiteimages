@@ -1,48 +1,63 @@
 * { box-sizing: border-box; }
 
 :root {
+  /* BASE */
   --bg: #1a1625;
   --text: #ffffff;
-  --accent: #a855f7;
+  --text-soft: #EED6C9;
 
-  --card-bg: #2a1f3d;
-  --border: #6b3fa0;
+  /* BRAND */
+  --accent: #a855f7;
   --hover: #ffba4b;
 
-  --text-soft: #EED6C9;
+  /* CARDS / UI */
+  --card-bg: #2a1f3d;
+  --border: #6b3fa0;
+  --border-soft: rgba(255,255,255,0.2);
+
+  /* CTA */
   --cta-grad-start: #A236D3;
   --cta-grad-end: #541C6D;
+
+  /* GRADIENTS */
   --title-grad-1: #FFFFFF;
   --title-grad-2: #F5E4D9;
   --title-grad-3: var(--text-soft);
 
+  /* GLOW / EFFECTS */
   --title-glow: rgba(238,214,201,0.25);
   --shine: rgba(255,255,255,0.25);
-  --overlay-bg: rgba(0,0,0,0.7);
-  --terms-bg-start: #513474;
-  --terms-bg-end: #252332;
-  --panel-bg: rgba(129, 66, 208, 0.95);
-  --overlay-panel: rgba(129, 66, 208, 0.9);
+
   --hover-glow-strong: rgba(255, 186, 75, 0.7);
   --hover-glow-soft: rgba(255, 186, 75, 0.4);
-  --hover-glow-none: rgba(255, 186, 75, 0);
   --hover-glow-weak: rgba(255, 186, 75, 0.2);
   --hover-glow-max: rgba(255, 186, 75, 0.9);
-  --hover-glow-strong: rgba(255, 186, 75, 0.7);
-  --hover-glow-soft: rgba(255, 186, 75, 0.4);
+  --hover-glow-none: rgba(255, 186, 75, 0);
+
   --accent-strong: rgba(168,85,247,0.6);
   --accent-soft: rgba(168,85,247,0.2);
   --accent-soft-2: rgba(168,85,247,0.15);
-  --border-soft: rgba(255,255,255,0.2);
+
+  /* BACKGROUNDS */
+  --overlay-bg: rgba(0,0,0,0.7);
+  --terms-bg-start: #513474;
+  --terms-bg-end: #252332;
+
+  --panel-bg: rgba(129, 66, 208, 0.95);
+  --overlay-panel: rgba(129, 66, 208, 0.9);
+
   --header-bg-strong: rgba(26,22,37,0.95);
   --header-bg-transparent: rgba(26,22,37,0);
+
   --hero-overlay-start: rgba(0,0,0,0);
   --hero-overlay-end: var(--bg);
+
+  /* UTILS */
   --white-soft: rgba(255,255,255,0.2);
+
+  /* ASSETS */
   --hero-image: url("https://raw.githubusercontent.com/Dangokojima/Kittysiteimages/main/BG/BGTop.png");
 }
-
-
 /* =========================
    DARK (root)
 ========================= */
@@ -54,31 +69,55 @@ body.theme-dark {
 /* =========================
    LIGHT
 ========================= */
-
 body.theme-light {
+
+  /* BASE */
   --bg: #EED6C9;
   --text: #1a1625;
+  --text-soft: #5a4a42;
 
+  /* BRAND (mantém) */
+  /* --accent */
+  /* --hover */
+
+  /* CARDS / UI */
   --card-bg: #ffffff;
   --border: #d6bfae;
+  --border-soft: rgba(26,22,37,0.2);
 
-  --text-soft: #5a4a42;
-  --shine: rgba(255,255,255,0.25);
-  --overlay-bg: rgba(0,0,0,0.5);
+  /* CTA (mantém) */
+  /* --cta-grad-start */
+  /* --cta-grad-end */
+
+  /* GRADIENTS */
   --title-grad-1: #1a1625;
   --title-grad-2: #6b3fa0;
   --title-grad-3: #a855f7;
 
+  /* GLOW / EFFECTS */
+  --title-glow: rgba(168,85,247,0.25);
+  --shine: rgba(255,255,255,0.25);
+
+  /* BACKGROUNDS */
+  --overlay-bg: rgba(0,0,0,0.5);
+
   --terms-bg-start: #EED6C9;
   --terms-bg-end: #d6bfae;
 
-  --border-soft: rgba(26,22,37,0.2);
+  --panel-bg: rgba(129, 66, 208, 0.85);
+  --overlay-panel: rgba(129, 66, 208, 0.6);
 
-  --title-glow: rgba(168,85,247,0.25);
   --header-bg-strong: rgba(238,214,201,0.95);
   --header-bg-transparent: rgba(238,214,201,0);
+
   --hero-overlay-start: rgba(255,255,255,0.2);
   --hero-overlay-end: var(--bg);
+
+  /* UTILS */
+  /* --white-soft (mantém) */
+
+  /* ASSETS */
+  /* --hero-image (mantém) */
 }
 
 body {
