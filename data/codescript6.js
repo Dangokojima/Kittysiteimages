@@ -155,6 +155,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     overlay.onclick = closeMenu;
+    sidePanel.onclick = closeMenu;
   }
 
   function closeMenu(){
