@@ -516,33 +516,85 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function changePage(page){
 
-    // fecha tudo
-    if (termsPage?.classList.contains("show")) {
-      updateView(false);
+    // =========================
+    // RESET GLOBAL
+    // =========================
+
+    // esconder todas páginas
+    termsPage?.classList.remove("show");
+    tallyPage?.classList.remove("show");
+    portfolioPage?.classList.remove("show");
+
+    // reset geral
+    kittyRoot?.classList.remove("hidden");
+    document.body.style.overflow = "";
+    document.documentElement.style.overflow = "";
+    document.body.classList.remove("terms-open");
+
+    // =========================
+    // HOME
+    // =========================
+
+    if (page === "home") {
+      window.scrollTo(0, 0);
+      return;
     }
 
-    if (tallyPage?.classList.contains("show")) {
-      closeTallyPage();
-    }
+    // =========================
+    // ABRIR PÁGINA
+    // =========================
 
-    if (portfolioPage?.classList.contains("show")) {
-      closePortfolioPage();
-    }
+    kittyRoot?.classList.add("hidden");
+    document.body.style.overflow = "hidden";
 
-    // abre o correto
+    // =========================
+    // TERMS
+    // =========================
+
     if (page === "terms") {
-      updateView(true);
+      termsPage?.classList.add("show");
+
+      document.documentElement.style.overflow = "hidden";
+      document.body.classList.add("terms-open");
+
       loadTerms();
     }
 
+    // =========================
+    // TALLY
+    // =========================
+
     if (page === "tally") {
-      openTallyPage();
+      tallyPage?.classList.add("show");
+
+      const lang = localStorage.getItem("lang") || "pt";
+
+      if (lang === "pt") {
+        tallyPT?.classList.add("active");
+        tallyEN?.classList.remove("active");
+      } else {
+        tallyEN?.classList.add("active");
+        tallyPT?.classList.remove("active");
+      }
+
+      loadTallyScript();
     }
+
+    // =========================
+    // PORTFOLIO
+    // =========================
 
     if (page === "portfolio") {
-      openPortfolioPage();
+      portfolioPage?.classList.add("show");
+
+      setupPortfolioFilters();
     }
 
+    // =========================
+    // FINAL
+    // =========================
+
+    window.scrollTo(0, 0);
   }
 
 });
