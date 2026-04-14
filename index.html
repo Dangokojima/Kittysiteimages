@@ -30,11 +30,11 @@
         <span class="font-buttons" data-i18n="portfolio">Portfólio</span>
       </a>
 
-      <a href="#projects">
+      <a href="#" data-page="projects">
         <span class="font-buttons" data-i18n="projects">Projetos</span>
       </a>
 
-      <a href="#pricing">
+      <a href="#" data-page="pricing">
         <span class="font-buttons" data-i18n="pricing">Preços</span>
       </a>
 
@@ -42,7 +42,7 @@
         <span class="font-buttons" data-i18n="faq">FAQ</span>
       </a>
 
-      <a href="#" id="openTerms" data-i18n="tos"></a>
+      <a href="#" data-open="terms" data-i18n="tos"></a>
 
       <a href="#footer">
         <span class="font-buttons" data-i18n="contact">Contato</span>
@@ -315,6 +315,30 @@
     <img id="popupImg">
   </div>
 
+  <section id="pricingPage" class="terms-page">
+    <div class="terms-container">
+      <h1 class="font-title">Pricing</h1>
+      <p>Em breve...</p>
+      <button class="cta" onclick="changePage('home')">Voltar</button>
+    </div>
+  </section>
+
+  <section id="projectsPage" class="terms-page">
+    <div class="terms-container">
+      <h1 class="font-title">Projects</h1>
+      <p>Projeto 1</p>
+      <button class="cta" onclick="changePage('home')">Voltar</button>
+    </div>
+  </section>
+
+  <section id="policyPage" class="terms-page">
+    <div class="terms-container">
+      <h1 class="font-title">Policy</h1>
+      <p>Conteúdo da policy aqui...</p>
+      <button class="cta" onclick="changePage('home')">Voltar</button>
+    </div>
+  </section>
+
   <footer id="footer" class="kitty-footer">
     <div class="footer-container">
       <div class="footer-left">
@@ -329,9 +353,9 @@
           <a href="#portfolio" data-i18n="portfolio"></a>
         </div>
         <div class="footer-col">
-          <a href="#" id="openTerms" data-i18n="terms"></a>
+          <a href="#" data-open="terms" data-i18n="terms"></a>
           <a href="#faq" data-i18n="faq"></a>
-          <a href="#privacy" data-i18n="privacy"></a>
+          <a href="#" data-page="policy" data-i18n="privacy"></a>
         </div>
       </div>
 
@@ -358,9 +382,9 @@
 
       <a href="#portfolio" class="font-buttons" data-i18n="portfolio">Portfólio</a>
 
-      <a href="#projects" class="font-buttons" data-i18n="projects">Projetos</a>
+      <a href="#" data-page="projects" class="font-buttons" data-i18n="projects">Projetos</a>
 
-      <a href="#pricing" class="font-buttons" data-i18n="pricing">Preços</a>
+      <a href="#" data-page="pricing" class="font-buttons" data-i18n="pricing">Preços</a>
 
       <a href="#faq" class="font-buttons" data-i18n="faq">FAQ</a>
 

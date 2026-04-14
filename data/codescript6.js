@@ -23,6 +23,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const closeIcon = document.getElementById("closeIcon");
   const closeBtn = document.getElementById("closeBtn");
   const logoWhite = document.getElementById("logoWhite");
+  const pricingPage = document.getElementById("pricingPage");
+  const projectsPage = document.getElementById("projectsPage");
+  const policyPage = document.getElementById("policyPage");
 
   // =========================
   // SAFE HELPER 😏
@@ -261,24 +264,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const kittyRoot = document.getElementById("homepage-content");
   const termsPage = document.getElementById("termsPage");
-  const openTerms = document.getElementById("openTerms");
-  const closeTerms = document.getElementById("closeTerms");
   const navLinks = document.querySelectorAll('a[href^="#"]');
+
+  document.querySelectorAll('[data-open="terms"]').forEach(el => {
+    el.addEventListener("click", (e) => {
+      e.preventDefault();
+      changePage("terms");
+      loadTerms();
+    });
+  });
 
   navLinks.forEach(link => {
     link.addEventListener("click", () => {
 
-      // TERMS
+      // 👇 IGNORA BOTÕES SPA
+      if (link.dataset.page || link.dataset.open) return;
+
       if (termsPage?.classList.contains("show")) {
         changePage("home");
       }
 
-      // TALLY
       if (tallyPage?.classList.contains("show")) {
         changePage("home");
       }
 
-      // PORTFOLIO 👇
       if (portfolioPage?.classList.contains("show")) {
         changePage("home");
       }
@@ -291,23 +300,6 @@ document.addEventListener("DOMContentLoaded", () => {
       changePage("home");
     }
   });
-
-  // abrir
-  if (openTerms) {
-    openTerms.addEventListener("click", (e) => {
-      e.preventDefault();
-      changePage("terms");
-      loadTerms();
-    });
-  }
-
-  // fechar
-  if (closeTerms) {
-    closeTerms.addEventListener("click", (e) => {
-      e.preventDefault();
-      changePage("home");
-    });
-  }
 
   async function loadTerms() {
     const container = document.querySelector(".terms-container");
@@ -343,6 +335,43 @@ document.addEventListener("DOMContentLoaded", () => {
 
     } catch (err) {
       console.error("Erro ao carregar termos:", err);
+    }
+  }
+
+  async function loadPolicy() {
+    const container = document.querySelector(".terms-container");
+    if (!container) return;
+
+    const lang = localStorage.getItem("lang") || "pt";
+    const file = lang === "pt" ? "policy-pt.html" : "policy-en.html";
+
+    try {
+      // 👇 garante tradução carregada
+      if (!translations || !translations.policy_title) {
+        await new Promise(resolve => {
+          loadTranslations(lang);
+          setTimeout(resolve, 200);
+        });
+      }
+
+      const res = await fetch(`${BASE}/data/${file}?v=${Date.now()}`);
+      const html = await res.text();
+
+      container.innerHTML = `
+        <h1 class="font-title">${translations.policy_title || "Policy"}</h1>
+        ${html}
+        <button id="closePolicy" class="cta">
+          ${translations.back || "Voltar"}
+        </button>
+      `;
+
+      document.getElementById("closePolicy")?.addEventListener("click", (e)=>{
+        e.preventDefault();
+        changePage("home");
+      });
+
+    } catch (err) {
+      console.error("Erro ao carregar policy:", err);
     }
   }
 
@@ -451,6 +480,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  
   async function changePage(page){
 
     // =========================
@@ -461,6 +491,9 @@ document.addEventListener("DOMContentLoaded", () => {
     termsPage?.classList.remove("show");
     tallyPage?.classList.remove("show");
     portfolioPage?.classList.remove("show");
+    pricingPage?.classList.remove("show");
+    projectsPage?.classList.remove("show");
+    policyPage?.classList.remove("show");
 
     // reset geral
     kittyRoot?.classList.remove("hidden");
@@ -525,6 +558,35 @@ document.addEventListener("DOMContentLoaded", () => {
       portfolioPage?.classList.add("show");
       await loadGallery();
       setupPortfolioFilters();
+    }
+
+    // =========================
+    // PREÇOS
+    // =========================
+
+    if (page === "pricing") {
+      pricingPage?.classList.add("show");
+    }
+
+    // =========================
+    // PROJETOS
+    // =========================
+
+    if (page === "projects") {
+      projectsPage?.classList.add("show");
+    }
+
+    // =========================
+    // POLICY
+    // =========================
+
+    if (page === "policy") {
+      policyPage?.classList.add("show");
+
+      document.documentElement.style.overflow = "hidden";
+      document.body.classList.add("terms-open");
+
+      loadPolicy(); // 👈 importante
     }
 
     // =========================
