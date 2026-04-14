@@ -433,16 +433,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   }
 
-  function openPortfolioPage(){
-    if (!portfolioPage || !kittyRoot) return;
-
-    kittyRoot.classList.add("hidden");
-    portfolioPage.classList.add("show");
-    document.body.style.overflow = "hidden";
-
-    setupPortfolioFilters(); // 👈 ISSO AQUI
-  }
-
   // botão do header (IMPORTANTE)
   document.querySelectorAll('a[href="#portfolio"]').forEach(el=>{
     el.addEventListener("click",(e)=>{
@@ -451,7 +441,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  function changePage(page){
+  async function changePage(page){
 
     // =========================
     // RESET GLOBAL
@@ -523,7 +513,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (page === "portfolio") {
       portfolioPage?.classList.add("show");
-
+      await loadGallery();
       setupPortfolioFilters();
     }
 
@@ -532,6 +522,41 @@ document.addEventListener("DOMContentLoaded", () => {
     // =========================
 
     window.scrollTo(0, 0);
+  }
+
+  async function loadGallery(){
+
+    const grid = document.querySelector(".portfolio-full-grid");
+    if (!grid) return;
+
+    grid.innerHTML = "";
+
+    try {
+      const res = await fetch(`./data/gallery.json?v=${Date.now()}`);
+      const data = await res.json();
+
+      Object.entries(data).forEach(([category, items]) => {
+
+        items.forEach(item => {
+
+          const div = document.createElement("div");
+          div.className = "card";
+          div.dataset.category = category;
+
+          div.innerHTML = `
+            <img src="./gallery/${category}/${item.file}">
+          `;
+
+          grid.appendChild(div);
+
+        });
+
+      });
+
+    } catch (err) {
+      console.error("Erro ao carregar gallery:", err);
+    }
+
   }
 
 });
