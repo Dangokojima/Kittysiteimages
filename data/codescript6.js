@@ -25,7 +25,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const logoWhite = document.getElementById("logoWhite");
   const pricingPage = document.getElementById("pricingPage");
   const projectsPage = document.getElementById("projectsPage");
-  const policyPage = document.getElementById("policyPage");
 
   // =========================
   // SAFE HELPER 😏
@@ -265,12 +264,21 @@ document.addEventListener("DOMContentLoaded", () => {
   const kittyRoot = document.getElementById("homepage-content");
   const termsPage = document.getElementById("termsPage");
   const navLinks = document.querySelectorAll('a[href^="#"]');
-
+  const policyPage = document.getElementById("policyPage");
+  
   document.querySelectorAll('[data-open="terms"]').forEach(el => {
     el.addEventListener("click", (e) => {
       e.preventDefault();
       changePage("terms");
       loadTerms();
+    });
+  });
+
+  document.querySelectorAll('[data-page]').forEach(el => {
+    el.addEventListener("click", (e) => {
+      e.preventDefault();
+      closeMenu?.();
+      changePage(el.dataset.page);
     });
   });
 
@@ -302,7 +310,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   async function loadTerms() {
-    const container = document.querySelector(".terms-container");
+    const container = termsPage?.querySelector(".terms-container");
     if (!container) return;
 
     const lang = localStorage.getItem("lang") || "pt";
@@ -339,7 +347,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   async function loadPolicy() {
-    const container = document.querySelector(".terms-container");
+    const container = policyPage?.querySelector(".terms-container");
     if (!container) return;
 
     const lang = localStorage.getItem("lang") || "pt";
@@ -347,7 +355,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     try {
       // 👇 garante tradução carregada
-      if (!translations || !translations.policy_title) {
+      if (!translations || !translations.privacy) {
         await new Promise(resolve => {
           loadTranslations(lang);
           setTimeout(resolve, 200);
@@ -358,7 +366,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const html = await res.text();
 
       container.innerHTML = `
-        <h1 class="font-title">${translations.policy_title || "Policy"}</h1>
+        <h1 class="font-title">${translations.privacy || "Policy"}</h1>
         ${html}
         <button id="closePolicy" class="cta">
           ${translations.back || "Voltar"}
