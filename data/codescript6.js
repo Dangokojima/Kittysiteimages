@@ -309,78 +309,24 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  async function loadTerms() {
-    const container = termsPage?.querySelector(".terms-container");
-    if (!container) return;
-
-    const lang = localStorage.getItem("lang") || "pt";
-    const file = lang === "pt" ? "terms-pt.html" : "terms-en.html";
-
-    try {
-      // 👇 garante tradução carregada
-      if (!translations || !translations.terms_title) {
-        await new Promise(resolve => {
-          loadTranslations(lang);
-          setTimeout(resolve, 200); // simples e suficiente aqui
-        });
-      }
-
-      const res = await fetch(`${BASE}/data/${file}?v=${Date.now()}`);
-      const html = await res.text();
-
-      container.innerHTML = `
-        <h1 class="font-title">${translations.terms_title || "Terms"}</h1>
-        ${html}
-        <button id="closeTerms" class="cta">
-          ${translations.back || "Voltar"}
-        </button>
-      `;
-
-      document.getElementById("closeTerms")?.addEventListener("click", (e)=>{
-        e.preventDefault();
-        changePage("home");
-      });
-
-    } catch (err) {
-      console.error("Erro ao carregar termos:", err);
-    }
+  function loadTerms() {
+    return loadStaticPage({
+      page: termsPage,
+      file: "terms",
+      titleKey: "terms_title",
+      fallbackTitle: "Terms",
+      closeId: "closeTerms"
+    });
   }
 
-  async function loadPolicy() {
-    const container = policyPage?.querySelector(".terms-container");
-    if (!container) return;
-
-    const lang = localStorage.getItem("lang") || "pt";
-    const file = lang === "pt" ? "policy-pt.html" : "policy-en.html";
-
-    try {
-      // 👇 garante tradução carregada
-      if (!translations || !translations.privacy) {
-        await new Promise(resolve => {
-          loadTranslations(lang);
-          setTimeout(resolve, 200);
-        });
-      }
-
-      const res = await fetch(`${BASE}/data/${file}?v=${Date.now()}`);
-      const html = await res.text();
-
-      container.innerHTML = `
-        <h1 class="font-title">${translations.privacy || "Policy"}</h1>
-        ${html}
-        <button id="closePolicy" class="cta">
-          ${translations.back || "Voltar"}
-        </button>
-      `;
-
-      document.getElementById("closePolicy")?.addEventListener("click", (e)=>{
-        e.preventDefault();
-        changePage("home");
-      });
-
-    } catch (err) {
-      console.error("Erro ao carregar policy:", err);
-    }
+  function loadPolicy() {
+    return loadStaticPage({
+      page: policyPage,
+      file: "policy",
+      titleKey: "privacy",
+      fallbackTitle: "Policy",
+      closeId: "closePolicy"
+    });
   }
 
   // =========================
@@ -488,7 +434,53 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  
+  // =========================
+  // Page Manager
+  // =========================
+
+  async function loadStaticPage({
+    page,
+    file,
+    titleKey,
+    fallbackTitle,
+    closeId
+  }) {
+    const container = page?.querySelector(".terms-container");
+    if (!container) return;
+
+    const lang = localStorage.getItem("lang") || "pt";
+    const finalFile = lang === "pt" ? `${file}-pt.html` : `${file}-en.html`;
+
+    try {
+      // garante tradução
+      if (!translations || !translations[titleKey]) {
+        await new Promise(resolve => {
+          loadTranslations(lang);
+          setTimeout(resolve, 200);
+        });
+      }
+
+      const res = await fetch(`${BASE}/data/${finalFile}?v=${Date.now()}`);
+      const html = await res.text();
+
+      container.innerHTML = `
+        <h1 class="font-title">${translations[titleKey] || fallbackTitle}</h1>
+        ${html}
+        <button id="${closeId}" class="cta">
+          ${translations.back || "Voltar"}
+        </button>
+      `;
+
+      document.getElementById(closeId)?.addEventListener("click", (e) => {
+        e.preventDefault();
+        changePage("home");
+      });
+
+    } catch (err) {
+      console.error(`Erro ao carregar ${file}:`, err);
+    }
+  }
+
   async function changePage(page){
 
     // =========================
