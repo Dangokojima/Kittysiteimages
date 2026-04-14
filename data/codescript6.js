@@ -258,19 +258,30 @@ document.addEventListener("DOMContentLoaded", () => {
   navLinks.forEach(link => {
     link.addEventListener("click", () => {
 
-      // fecha TERMS
+      // TERMS
       if (termsPage?.classList.contains("show")) {
         updateView(false);
       }
 
-      // fecha TALLY
+      // TALLY
       if (tallyPage?.classList.contains("show")) {
         closeTallyPage();
+      }
+
+      // PORTFOLIO 👇
+      if (portfolioPage?.classList.contains("show")) {
+        closePortfolioPage();
       }
 
     });
   });
   
+  document.addEventListener("click", (e)=>{
+    if (e.target === portfolioPage) {
+      closePortfolioPage();
+    }
+  });
+
   function updateView(showTerms = false) {
 
     if (showTerms) {
