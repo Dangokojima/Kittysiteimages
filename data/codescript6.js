@@ -104,7 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // 👇 FECHA TALLY SE ESTIVER ABERTO
       if (tallyPage?.classList.contains("show")) {
-        closeTallyPage();
+        changePage("home");
       }
     };
   }
@@ -260,17 +260,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // TERMS
       if (termsPage?.classList.contains("show")) {
-        updateView(false);
+        changePage("home");
       }
 
       // TALLY
       if (tallyPage?.classList.contains("show")) {
-        closeTallyPage();
+        changePage("home");
       }
 
       // PORTFOLIO 👇
       if (portfolioPage?.classList.contains("show")) {
-        closePortfolioPage();
+        changePage("home");
       }
 
     });
@@ -278,29 +278,9 @@ document.addEventListener("DOMContentLoaded", () => {
   
   document.addEventListener("click", (e)=>{
     if (e.target === portfolioPage) {
-      closePortfolioPage();
+      changePage("home");
     }
   });
-
-  function updateView(showTerms = false) {
-
-    if (showTerms) {
-      if (kittyRoot) kittyRoot.classList.add("hidden");
-      if (termsPage) termsPage.classList.add("show");
-
-      document.documentElement.style.overflow = "hidden";
-      document.body.classList.add("terms-open"); // 👈 ADICIONA
-
-    } else {
-      if (termsPage) termsPage.classList.remove("show");
-      if (kittyRoot) kittyRoot.classList.remove("hidden");
-
-      document.documentElement.style.overflow = "";
-      document.body.classList.remove("terms-open"); // 👈 REMOVE
-    }
-
-    window.scrollTo(0, 0);
-  }
 
   // abrir
   if (openTerms) {
@@ -315,7 +295,7 @@ document.addEventListener("DOMContentLoaded", () => {
   if (closeTerms) {
     closeTerms.addEventListener("click", (e) => {
       e.preventDefault();
-      updateView(false);
+      changePage("home");
     });
   }
 
@@ -348,7 +328,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       document.getElementById("closeTerms")?.addEventListener("click", (e)=>{
         e.preventDefault();
-        updateView(false);
+        changePage("home");
       });
 
     } catch (err) {
@@ -388,12 +368,6 @@ document.addEventListener("DOMContentLoaded", () => {
     loadTallyScript();
   }
 
-  function closeTallyPage() {
-    tallyPage.classList.remove("show");
-    kittyRoot.classList.remove("hidden");
-    document.body.style.overflow = "";
-  }
-
   // botão abrir
   openTally?.addEventListener("click", (e) => {
     e.preventDefault();
@@ -405,9 +379,6 @@ document.addEventListener("DOMContentLoaded", () => {
     closeMenu();
     changePage("tally");
   });
-
-  // botão fechar
-  closeTally?.addEventListener("click", closeTallyPage);
 
   document.querySelectorAll("[data-open-tally]").forEach(el => {
     el.addEventListener("click", (e) => {
