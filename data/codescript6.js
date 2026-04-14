@@ -343,30 +343,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const tallyPage = document.getElementById("tallyPage");
   const openTally = document.getElementById("openTally");
   const mobileTally = document.getElementById("mobileTally");
-  const closeTally = document.getElementById("closeTally");
   const tallyPT = document.getElementById("tallyPT");
   const tallyEN = document.getElementById("tallyEN");
-
-  function openTallyPage() {
-    if (!tallyPage) return;
-
-    const lang = localStorage.getItem("lang") || "pt";
-
-    // 👇 ativa o certo
-    if (lang === "pt") {
-      tallyPT.classList.add("active");
-      tallyEN.classList.remove("active");
-    } else {
-      tallyEN.classList.add("active");
-      tallyPT.classList.remove("active");
-    }
-
-    kittyRoot.classList.add("hidden");
-    tallyPage.classList.add("show");
-    document.body.style.overflow = "hidden";
-
-    loadTallyScript();
-  }
 
   // botão abrir
   openTally?.addEventListener("click", (e) => {
@@ -414,22 +392,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const openPortfolio = document.getElementById("openPortfolio");
   const closePortfolio = document.querySelector(".close-portfolio");
 
-  function closePortfolioPage(){
-    portfolioPage.classList.remove("show");
-    kittyRoot.classList.remove("hidden");
-    document.body.style.overflow = "";
-  }
-
   closePortfolio?.addEventListener("click", (e)=>{
     e.preventDefault();
     closePortfolioPage();
   });
-
-  function openPortfolioPage(){
-    kittyRoot.classList.add("hidden");
-    portfolioPage.classList.add("show");
-    document.body.style.overflow = "hidden";
-  }
 
   openPortfolio?.addEventListener("click", (e)=>{
     e.preventDefault();
