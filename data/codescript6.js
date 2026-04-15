@@ -104,8 +104,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
       loadTranslations(currentLang);
 
-      // 👇 FECHA TALLY SE ESTIVER ABERTO
-      if (tallyPage?.classList.contains("show")) {
+      const pages = [tallyPage, pricingPage, projectsPage, policyPage, termsPage];
+
+      if (pages.some(p => p?.classList.contains("show"))) {
         changePage("home");
       }
     };
