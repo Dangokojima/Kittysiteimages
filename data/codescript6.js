@@ -309,6 +309,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  // =========================
+  // Static Pages (Terms & Policy)
+  // =========================
+
   function loadTerms() {
     return loadStaticPage({
       page: termsPage,
