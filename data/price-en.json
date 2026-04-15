@@ -72,6 +72,80 @@
           ]
         }
       ]
+    },
+    {
+      "title": "Illustration",
+      "items": [
+        {
+          "name": "Illustrations",
+          "delivery": "1 month",
+          "features": [
+            "High quality PNG & JPEG files",
+            "PSD file with separated layers (if animation separation is requested)"
+          ],
+          "prices": [
+            "Bust: $50",
+            "Half body: $80",
+            "Full body: $110"
+          ],
+          "addons": [
+            "Additional character: +70% of base price",
+            "Simple background: +$15 - $70+",
+            "Animation-ready file (layer separation): +$15 - $60",
+            "Simple loop (blink / subtle movement): $60",
+            "Complex animation: $100+"
+          ]
+        },
+
+        {
+          "name": "Chibi",
+          "delivery": "1 month",
+          "features": [],
+          "prices": [
+            "Chibi Icon: $20",
+            "Full Body Chibi: $40"
+          ],
+          "addons": []
+        },
+
+        {
+          "name": "Character / Outfit Design",
+          "delivery": "1 month",
+          "features": [
+            "PNGs with textures, tattoos and separate details",
+            "One full high-quality PNG with all elements"
+          ],
+          "prices": [
+            "Character design (flat color): $80+",
+            "Character design (rendered, includes flat): $130+",
+            "Outfit design (flat color): $40+",
+            "Outfit design (rendered, includes flat): $60+"
+          ],
+          "addons": []
+        },
+
+        {
+          "name": "Ref Sheet",
+          "delivery": "1 - 3 months",
+          "features": [
+            "Front, back and character icon",
+            "PNGs with textures, tattoos and separate details",
+            "One full high-quality PNG with all elements"
+          ],
+          "prices": [
+            "Ref Sheet (flat color): $150+",
+            "Ref Sheet (rendered, includes flat): $200+"
+          ],
+          "addons": [
+            "Side view: +$40 - $70+",
+            "Expressions: +$10 - $20",
+            "Items, weapons, hands, etc: +$15+",
+            "Pet: +$15+",
+            "Chibi version: +$15 - $30"
+          ]
+        }
+      ]
     }
+
   ]
 }

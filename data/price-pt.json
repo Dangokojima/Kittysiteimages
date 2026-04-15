@@ -72,6 +72,79 @@
           ]
         }
       ]
+    },
+    {
+      "title": "Ilustração",
+      "items": [
+        {
+          "name": "Ilustrações",
+          "delivery": "1 mês",
+          "features": [
+            "Arquivo PNG, JPEG em alta qualidade",
+            "Separação para animação inclui PSD com camadas"
+          ],
+          "prices": [
+            "Busto: R$130",
+            "Meio corpo: R$200",
+            "Corpo inteiro: R$300"
+          ],
+          "addons": [
+            "Personagem extra: +70% do valor base",
+            "Fundo simples: +R$50 - R$300+",
+            "Separação para animação: +R$50 - R$250",
+            "Loop simples (piscar/movimento leve): R$250",
+            "Animação complexa: R$400+"
+          ]
+        },
+
+        {
+          "name": "Chibi",
+          "delivery": "1 mês",
+          "features": [],
+          "prices": [
+            "Chibi Ícone: R$50",
+            "Chibi Corpo inteiro: R$100"
+          ],
+          "addons": []
+        },
+
+        {
+          "name": "Design de Personagem / Roupa",
+          "delivery": "1 mês",
+          "features": [
+            "PNGs com texturas, tatuagens e detalhes",
+            "PNG único com todos os elementos em alta qualidade"
+          ],
+          "prices": [
+            "Personagem flat color: R$250+",
+            "Personagem renderizado (inclui flat): R$320+",
+            "Roupa flat color: R$100+",
+            "Roupa renderizada (inclui flat): R$150+"
+          ],
+          "addons": []
+        },
+
+        {
+          "name": "Ref Sheet",
+          "delivery": "1 - 3 meses",
+          "features": [
+            "Frente, costas e ícone do personagem",
+            "PNGs com texturas, tatuagens e detalhes",
+            "PNG único com todos os elementos"
+          ],
+          "prices": [
+            "Ref Sheet flat color: R$400+",
+            "Ref Sheet renderizada (inclui flat): R$600+"
+          ],
+          "addons": [
+            "Personagem de lado: +R$150 - 250+",
+            "Expressões: +R$40 - 80",
+            "Itens/Armas/Mãos: +R$50+",
+            "Pet: +R$50+",
+            "Versão chibi: +R$50 - 100"
+          ]
+        }
+      ]
     }
   ]
 }
