@@ -1,79 +1,6 @@
 {
   "categories": [
     {
-      "title": "Streaming",
-      "items": [
-        {
-          "name": "PNGTuber",
-          "delivery": "1 - 2 meses",
-          "features": [
-            "Modelo de meio corpo",
-            "4 PNGs (Falando, boca fechada, piscando)"
-          ],
-          "prices": [
-            "Renderização Simples (Manhwa): R$250",
-            "Renderização Completa: R$320"
-          ],
-          "addons": [
-            "Expressão Extra: +R$10 - 20",
-            "Toggle Braço: +R$30 - 50+",
-            "Roupa/Cabelo Extra: +R$50+",
-            "Pet/Item: +R$20 - 100+"
-          ]
-        },
-
-        {
-          "name": "VTuber (Arte)",
-          "delivery": "2 - 3 meses",
-          "features": [
-            "4 expressões (Triste, Irritado, Vergonha, Feliz)",
-            "Base nua",
-            "PSD pronto para rigging"
-          ],
-          "prices": [
-            "Modelo Padrão: R$3500+",
-            "Modelo Chibi: R$2000+",
-            "Modelo Silly Chibi: R$700+"
-          ],
-          "addons": [
-            "Expressão Simples: +R$10 - 20",
-            "Expressão Complexa: +R$30+",
-            "Toggle Braço/Perna: +R$50 - 200+",
-            "Roupa Extra: +R$100 - 1000+",
-            "Cabelo Extra: +R$200 - 500+",
-            "Pet Simples: +R$100 - 250",
-            "Pet TTS: +R$300 - 500"
-          ]
-        },
-
-        {
-          "name": "VTuber (Arte + Rig)",
-          "delivery": "3 - 6 meses",
-          "features": [
-            "4 expressões (Triste, Irritado, Vergonha, Feliz)",
-            "Base nua",
-            "PSD",
-            "Arquivos do modelo"
-          ],
-          "prices": [
-            "Modelo Padrão: R$6000+",
-            "Modelo Chibi: R$4000+",
-            "Modelo Silly Chibi: R$1500+"
-          ],
-          "addons": [
-            "Expressão Simples: +R$50 - 100",
-            "Expressão Complexa: +R$150+",
-            "Toggle Braço/Perna: +R$150 - 200+",
-            "Roupa Extra: +R$200 - 2000+",
-            "Cabelo Extra: +R$300 - 1500+",
-            "Pet Simples: +R$200 - 350",
-            "Pet TTS: +R$400 - 700",
-            "VBridger: +R$800"
-          ]
-        }
-      ]
-    },
-    {
       "title": "Ilustração",
       "items": [
         {
@@ -142,6 +69,79 @@
             "Itens/Armas/Mãos: +R$50+",
             "Pet: +R$50+",
             "Versão chibi: +R$50 - 100"
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Streaming",
+      "items": [
+        {
+          "name": "PNGTuber",
+          "delivery": "1 - 2 meses",
+          "features": [
+            "Modelo de meio corpo",
+            "4 PNGs (Falando, boca fechada, piscando)"
+          ],
+          "prices": [
+            "Renderização Simples (Manhwa): R$250",
+            "Renderização Completa: R$320"
+          ],
+          "addons": [
+            "Expressão Extra: +R$10 - 20",
+            "Toggle Braço: +R$30 - 50+",
+            "Roupa/Cabelo Extra: +R$50+",
+            "Pet/Item: +R$20 - 100+"
+          ]
+        },
+
+        {
+          "name": "VTuber (Arte)",
+          "delivery": "2 - 3 meses",
+          "features": [
+            "4 expressões (Triste, Irritado, Vergonha, Feliz)",
+            "Base nua",
+            "PSD pronto para rigging"
+          ],
+          "prices": [
+            "Modelo Padrão: R$3500+",
+            "Modelo Chibi: R$2000+",
+            "Modelo Silly Chibi: R$700+"
+          ],
+          "addons": [
+            "Expressão Simples: +R$10 - 20",
+            "Expressão Complexa: +R$30+",
+            "Toggle Braço/Perna: +R$50 - 200+",
+            "Roupa Extra: +R$100 - 1000+",
+            "Cabelo Extra: +R$200 - 500+",
+            "Pet Simples: +R$100 - 250",
+            "Pet TTS: +R$300 - 500"
+          ]
+        },
+
+        {
+          "name": "VTuber (Arte + Rig)",
+          "delivery": "3 - 6 meses",
+          "features": [
+            "4 expressões (Triste, Irritado, Vergonha, Feliz)",
+            "Base nua",
+            "PSD",
+            "Arquivos do modelo"
+          ],
+          "prices": [
+            "Modelo Padrão: R$6000+",
+            "Modelo Chibi: R$4000+",
+            "Modelo Silly Chibi: R$1500+"
+          ],
+          "addons": [
+            "Expressão Simples: +R$50 - 100",
+            "Expressão Complexa: +R$150+",
+            "Toggle Braço/Perna: +R$150 - 200+",
+            "Roupa Extra: +R$200 - 2000+",
+            "Cabelo Extra: +R$300 - 1500+",
+            "Pet Simples: +R$200 - 350",
+            "Pet TTS: +R$400 - 700",
+            "VBridger: +R$800"
           ]
         }
       ]
