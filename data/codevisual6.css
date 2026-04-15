@@ -1531,7 +1531,6 @@ body:not(.light) #tallyPage iframe {
   font-family: 'UnifrakturCook';
   font-size: 34px;
   margin-bottom: 24px;
-
   letter-spacing: 1px;
 }
 
@@ -1607,4 +1606,8 @@ body:not(.light) #tallyPage iframe {
 
 .pricing-delivery {
   font-size: 15px;
+}
+
+#pricingPage h1 {
+  margin-top: 0;
 }
