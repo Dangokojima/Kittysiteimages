@@ -300,6 +300,18 @@ document.addEventListener("DOMContentLoaded", () => {
         changePage("home");
       }
 
+      if (pricingPage?.classList.contains("show")) {
+        changePage("home");
+      }
+
+      if (projectsPage?.classList.contains("show")) {
+        changePage("home");
+      }
+
+      if (policyPage?.classList.contains("show")) {
+        changePage("home");
+      }
+
     });
   });
   
