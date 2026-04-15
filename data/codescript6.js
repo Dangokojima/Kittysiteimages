@@ -656,6 +656,12 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   async function loadPricing() {
+    if (!translations || !translations.addons) {
+      await new Promise(resolve => {
+        loadTranslations(lang);
+        setTimeout(resolve, 200);
+      });
+    }
     const container = document.getElementById("pricingSections");
     if (!container) return;
 
@@ -689,20 +695,22 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="pricing-title">${item.name}</div>
 
             <div class="pricing-section">
+              <strong>${translations.prices}</strong><br>
               ${item.prices.map(p => `• ${p}`).join("<br>")}
             </div>
 
             <div class="pricing-section">
+              <strong>${translations.features}</strong><br>
               ${item.features.map(f => `• ${f}`).join("<br>")}
             </div>
 
             <div class="pricing-section">
-              <strong>Add-ons:</strong><br>
+              <strong>${translations.addons}</strong><br>
               ${item.addons.map(a => `• ${a}`).join("<br>")}
             </div>
 
             <div class="pricing-section">
-              ⏳ ${item.delivery}
+              ⏳ <strong>${translations.delivery}:</strong> ${item.delivery}
             </div>
           `;
 
