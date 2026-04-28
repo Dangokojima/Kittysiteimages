@@ -759,4 +759,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  const logo = document.querySelector(".logo-img");
+
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 50) {
+      logo.classList.add("hide");
+    } else {
+      logo.classList.remove("hide");
+    }
+  });
+
 });

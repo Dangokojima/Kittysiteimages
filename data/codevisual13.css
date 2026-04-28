@@ -228,11 +228,20 @@ body.theme-light {
 .header-left { position: relative; width: 80px; height: 40px; }
 
 .logo-img {
+  height: 128px;
+  width: auto; /* 👈 ESSENCIAL */
+
   position: absolute;
   top: 150%;
   left: 0;
   transform: translateY(-50%);
-  height: 128px;
+
+  transition: opacity 0.3s ease;
+}
+
+.logo-img.hide {
+  opacity: 0;
+  pointer-events: none;
 }
 
 /* MENU */
@@ -447,17 +456,16 @@ body.theme-light {
   z-index: 100;
 }
 
-.side-panel.open {
-  transform: translateX(0);
-}
-
-
-
 /* LOGO */
 .side-logo {
+  position: fixed; /* 👈 muda pra fixed */
+
+  top: 20px;
+  right: 40px;
+
   height: 200px;
-  margin-right: -90px;
   object-fit: contain;
+  z-index: 101; /* acima do panel */
 }
 
 /* MENU */
