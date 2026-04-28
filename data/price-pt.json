@@ -13,7 +13,9 @@
           "prices": [
             "Busto: R$130",
             "Meio corpo: R$200",
-            "Corpo inteiro: R$300"
+            "Corpo inteiro: R$300",
+            "Chibi Ícone: R$50",
+            "Chibi Corpo inteiro: R$100"
           ],
           "addons": [
             "Personagem extra: +70% do valor base",
@@ -22,17 +24,6 @@
             "Loop simples (piscar/movimento leve): R$250",
             "Animação complexa: R$400+"
           ]
-        },
-
-        {
-          "name": "Chibi",
-          "delivery": "1 mês",
-          "features": [],
-          "prices": [
-            "Chibi Ícone: R$50",
-            "Chibi Corpo inteiro: R$100"
-          ],
-          "addons": []
         },
 
         {

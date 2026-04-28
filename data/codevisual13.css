@@ -257,23 +257,20 @@ body.theme-light {
 /* BASE */
 .header-center a span {
   position: relative;
-  padding: 4px 2px; /* mantém o melhor valor */
+  padding: 6px 2px; /* mantém o melhor valor */
 }
 
 .header-center a span::after {
   content: "";
   position: absolute;
-  inset: 0;
+
+  inset: 2px -8px; /* 👈 controla o respiro aqui */
 
   border: 2px solid var(--hover);
   border-radius: 25px;
 
   opacity: 0;
   transform: scale(0.95);
-
-  box-shadow:
-    0 0 0 var(--hover-glow-none),
-    0 0 0 var(--hover-glow-none);
 
   transition:
     opacity 0.25s ease,

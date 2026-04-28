@@ -13,7 +13,9 @@
           "prices": [
             "Bust: $50",
             "Half body: $80",
-            "Full body: $110"
+            "Full body: $110",
+            "Chibi Icon: $20",
+            "Full Body Chibi: $40"
           ],
           "addons": [
             "Additional character: +70% of base price",
@@ -22,17 +24,6 @@
             "Simple loop (blink / subtle movement): $60",
             "Complex animation: $100+"
           ]
-        },
-
-        {
-          "name": "Chibi",
-          "delivery": "1 month",
-          "features": [],
-          "prices": [
-            "Chibi Icon: $20",
-            "Full Body Chibi: $40"
-          ],
-          "addons": []
         },
 
         {
