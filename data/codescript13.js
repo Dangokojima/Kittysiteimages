@@ -761,12 +761,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const logo = document.querySelector(".logo-img");
 
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 50) {
+  function getScrollValue() {
+    if (termsPage?.classList.contains("show")) return termsPage.scrollTop;
+    if (policyPage?.classList.contains("show")) return policyPage.scrollTop;
+    if (pricingPage?.classList.contains("show")) return pricingPage.scrollTop;
+    if (portfolioPage?.classList.contains("show")) return portfolioPage.scrollTop;
+    if (projectsPage?.classList.contains("show")) return projectsPage.scrollTop;
+
+    return window.scrollY; // home
+  }
+
+  function updateLogoVisibility() {
+    const scroll = getScrollValue();
+
+    if (scroll > 50) {
       logo.classList.add("hide");
     } else {
       logo.classList.remove("hide");
     }
-  });
+  }
+
+  // HOME scroll
+  window.addEventListener("scroll", updateLogoVisibility);
+
+  // SPA scroll (containers)
+  [termsPage, policyPage, pricingPage, portfolioPage, projectsPage]
+    .forEach(page => {
+      page?.addEventListener("scroll", updateLogoVisibility);
+    });
 
 });
