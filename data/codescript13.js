@@ -804,16 +804,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
       Object.entries(data).forEach(([category, items]) => {
 
+        const safeCategory = category.trim().toLowerCase();
+
         items.forEach(item => {
 
           const div = document.createElement("div");
           div.className = "project-item";
 
           div.innerHTML = `
-            <img src="${BASE}/gallery/projects/${category}/${item.file}">
+            <img src="${BASE}/gallery/projects/${safeCategory}/${item.file}">
           `;
 
-          // 🔥 link
           div.addEventListener("click", () => {
             if (item.link) {
               window.open(item.link, "_blank");

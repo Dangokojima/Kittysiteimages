@@ -1612,6 +1612,8 @@ body.theme-light {
   display: flex;
   gap: 20px;
 
+  justify-content: flex-start; /* 👈 ISSO AQUI */
+
   overflow-x: auto;
   padding: 30px 10px;
 
