@@ -1611,6 +1611,10 @@ body.theme-light {
   text-align: left;
 }
 
+#pricingPage .terms-container {
+  padding: 0 200px;
+}
+
 /* Projetos */
 
 .projects-grid {
