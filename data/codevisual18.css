@@ -1640,7 +1640,7 @@ body.theme-light {
 }
 
 .project-item {
-  flex: 0 0 400px;
+  flex: 0 0 clamp(240px, 70vw, 400px);
   border-radius: 12px;
   overflow: visible;
   cursor: pointer;
