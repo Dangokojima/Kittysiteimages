@@ -598,6 +598,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (page === "projects") {
       projectsPage?.classList.add("show");
+      await loadProjects();
     }
 
     // =========================
@@ -809,7 +810,7 @@ document.addEventListener("DOMContentLoaded", () => {
           div.className = "project-item";
 
           div.innerHTML = `
-            <img src="${BASE}/projects/${category}/${item.file}">
+            <img src="${BASE}/gallery/projects/${category}/${item.file}">
           `;
 
           // 🔥 link
