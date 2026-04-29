@@ -1424,7 +1424,7 @@ body.theme-light {
 .portfolio-full {
   margin-left: 0;
   margin-right: auto;
-  padding: 0 20px;
+  padding: 40px 60px;
 }
 
 .portfolio-big-title {
@@ -1660,9 +1660,8 @@ body.theme-light {
 
 .projects-container {
   width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
   text-align: left;
+  padding-left: 80px;
 }
 
 .projects-section {
