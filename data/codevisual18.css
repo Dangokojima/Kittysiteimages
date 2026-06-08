@@ -1691,3 +1691,50 @@ body.theme-light {
 #projectsPage {
   padding-top: 150px; /* ou 60px se quiser mais colado */
 }
+
+/* Borda */
+
+body {
+    position: relative;
+}
+
+.side-right-top img,
+.side-right-bottom img {
+    transform: scaleX(-1);
+}
+
+.side-decor {
+    position: absolute;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.side-decor img {
+    display: block;
+    width: 180px;
+}
+
+/* meio da página */
+.side-left {
+    left: -50px;
+    top: 1200px;
+}
+
+/* mais acima */
+.side-right-top {
+    right: -50px;
+    top: 700px;
+}
+
+/* mais abaixo */
+.side-right-bottom {
+    right: 0;
+    top: 2500px;
+}
+
+#sideDecorations {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 100;
+}
