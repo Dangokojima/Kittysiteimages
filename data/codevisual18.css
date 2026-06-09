@@ -1722,13 +1722,13 @@ body {
 
 /* mais acima */
 .side-right-top {
-    right: -50px;
+    right: -70px;
     top: 700px;
 }
 
 /* mais abaixo */
 .side-right-bottom {
-    right: -50px;
+    right: -70px;
     top: 2500px;
 }
 
@@ -1737,4 +1737,27 @@ body {
     inset: 0;
     pointer-events: none;
     z-index: 100;
+}
+
+@media (max-width: 900px) {
+
+    .side-left {
+        top: 2300px;
+        left: -120px;
+    }
+
+    .side-right-top {
+        top: 400px;
+        right: -120px;
+    }
+
+    .side-right-bottom {
+        top: 1600px;
+        right: -120px;
+    }
+
+}
+
+body {
+    overflow-x: hidden;
 }

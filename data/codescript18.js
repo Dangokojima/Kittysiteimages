@@ -524,6 +524,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.documentElement.style.overflow = "";
     document.body.classList.remove("terms-open");
 
+    
     // =========================
     // HOME
     // =========================
