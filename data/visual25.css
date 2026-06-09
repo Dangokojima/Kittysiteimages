@@ -1692,10 +1692,11 @@ body.theme-light {
   padding-top: 150px; /* ou 60px se quiser mais colado */
 }
 
-/* Borda */
+/* Side Decorations */
 
 body {
     position: relative;
+    overflow-x: hidden;
 }
 
 .side-right-top img,
@@ -1714,22 +1715,28 @@ body {
     width: 180px;
 }
 
-/* meio da página */
-.side-left {
+/* LEFT */
+
+.side-left-top {
     left: -20px;
-    top: 1200px;
+    top: 600px;
 }
 
-/* mais acima */
+.side-left-bottom {
+    left: -20px;
+    top: 2000px;
+}
+
+/* RIGHT */
+
 .side-right-top {
     right: -20px;
-    top: 700px;
+    top: 1400px;
 }
 
-/* mais abaixo */
 .side-right-bottom {
     right: -20px;
-    top: 2500px;
+    top: 3000px;
 }
 
 #sideDecorations {
@@ -1738,16 +1745,26 @@ body {
 
     width: 100%;
     height: 100%;
+
     pointer-events: none;
     z-index: 100;
 }
 
 @media (max-width: 900px) {
 
-    .side-left {
-        top: 2300px;
+    /* LEFT */
+
+    .side-left-top {
+        top: 400px;
         left: -120px;
     }
+
+    .side-left-bottom {
+        top: 1600px;
+        left: -120px;
+    }
+
+    /* RIGHT */
 
     .side-right-top {
         top: 400px;
@@ -1759,8 +1776,4 @@ body {
         right: -120px;
     }
 
-}
-
-body {
-    overflow-x: hidden;
 }
