@@ -1728,7 +1728,7 @@ body {
 
 /* mais abaixo */
 .side-right-bottom {
-    right: 0;
+    right: -50px;
     top: 2500px;
 }
 
