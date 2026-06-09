@@ -209,6 +209,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // CAROUSEL
   // =========================
 
+  createReviewsSection();
+
   const servicesGrid = document.querySelector(".services-grid");
   const servicesLeft = document.querySelector(".services-section .arrow-side.left");
   const servicesRight = document.querySelector(".services-section .arrow-side.right");
@@ -216,6 +218,54 @@ document.addEventListener("DOMContentLoaded", () => {
   const reviewsGrid = document.querySelector(".reviews-grid");
   const reviewsLeft = document.querySelector(".reviews-section .arrow-side.left");
   const reviewsRight = document.querySelector(".reviews-section .arrow-side.right");
+
+  function createReviewsSection() {
+    const container = document.querySelector(".reviews-section");
+
+    if (!container) return;
+
+    container.innerHTML = `
+      <div class="reviews-header">
+        <h2 class="font-serif" data-i18n="reviews_label"></h2>
+        <h3 class="font-title" data-i18n="reviews_title"></h3>
+      </div>
+
+      <div class="reviews-wrapper">
+
+        <img src="https://raw.githubusercontent.com/Dangokojima/Kittysiteimages/main/images/arrow.svg"
+            class="arrow-side left">
+
+        <div class="reviews-grid">
+
+          <div class="review-card">
+            <img src="https://raw.githubusercontent.com/Dangokojima/Kittysiteimages/main/images/quote.svg"
+                class="quote-icon">
+            <h4 data-i18n="review_name1"></h4>
+            <p data-i18n="review_text1"></p>
+          </div>
+
+          <div class="review-card">
+            <img src="https://raw.githubusercontent.com/Dangokojima/Kittysiteimages/main/images/quote.svg"
+                class="quote-icon">
+            <h4 data-i18n="review_name2"></h4>
+            <p data-i18n="review_text2"></p>
+          </div>
+
+          <div class="review-card">
+            <img src="https://raw.githubusercontent.com/Dangokojima/Kittysiteimages/main/images/quote.svg"
+                class="quote-icon">
+            <h4 data-i18n="review_name3"></h4>
+            <p data-i18n="review_text3"></p>
+          </div>
+
+        </div>
+
+        <img src="https://raw.githubusercontent.com/Dangokojima/Kittysiteimages/main/images/arrow.svg"
+            class="arrow-side right">
+
+      </div>
+    `;
+  }
 
   function setupCarousel(grid, leftArrow, rightArrow) {
     if (!grid || !leftArrow || !rightArrow) return;
