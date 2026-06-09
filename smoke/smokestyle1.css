@@ -11,3 +11,7 @@
 
     display: block !important;
 }
+
+body {
+    overflow-x: hidden;
+}
