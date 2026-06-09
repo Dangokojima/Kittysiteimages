@@ -1716,19 +1716,19 @@ body {
 
 /* meio da página */
 .side-left {
-    left: -40px;
+    left: -20px;
     top: 1200px;
 }
 
 /* mais acima */
 .side-right-top {
-    right: -40px;
+    right: -20px;
     top: 700px;
 }
 
 /* mais abaixo */
 .side-right-bottom {
-    right: -40px;
+    right: -20px;
     top: 2500px;
 }
 
