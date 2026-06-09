@@ -504,13 +504,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  const sideDecorations = document.getElementById("sideDecorations");
+
+
   async function changePage(page){
 
     // =========================
     // RESET GLOBAL
     // =========================
 
-    // esconder todas páginas
     termsPage?.classList.remove("show");
     tallyPage?.classList.remove("show");
     portfolioPage?.classList.remove("show");
@@ -518,13 +520,11 @@ document.addEventListener("DOMContentLoaded", () => {
     projectsPage?.classList.remove("show");
     policyPage?.classList.remove("show");
 
-    // reset geral
     kittyRoot?.classList.remove("hidden");
     document.body.style.overflow = "";
     document.documentElement.style.overflow = "";
     document.body.classList.remove("terms-open");
 
-    
     // =========================
     // HOME
     // =========================
@@ -547,10 +547,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (page === "terms") {
       termsPage?.classList.add("show");
-
       document.documentElement.style.overflow = "hidden";
       document.body.classList.add("terms-open");
-
       loadTerms();
     }
 
@@ -608,11 +606,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (page === "policy") {
       policyPage?.classList.add("show");
-
       document.documentElement.style.overflow = "hidden";
       document.body.classList.add("terms-open");
-
-      loadPolicy(); // 👈 importante
+      loadPolicy();
     }
 
     // =========================
